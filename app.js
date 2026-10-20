@@ -1,5 +1,5 @@
 const questionGroups = [
-  { verb: 'be', answer: 'was', sentences: [
+  { verb: 'be', answer: 'was', answers: ['was', 'was', 'was', 'was', 'was', 'was', 'was', 'was', 'were', 'were', 'were', 'were', 'were', 'were', 'were', 'were'], sentences: [
     'Yesterday, I _____ at the park.', 'Mia _____ happy with her new book.',
     'My brother _____ first in line.', 'The little cat _____ under the table.',
     'It _____ sunny on Monday.', 'Dad _____ at the library after work.',
@@ -154,29 +154,250 @@ const questionGroups = [
   ] },
 ];
 
+const continuationGroups = [
+  { verb: 'do', answer: 'did', sentences: [
+    'I _____ my homework after school.', 'Mum _____ the shopping on Saturday.',
+    'We _____ a science project together.', 'He _____ the dishes after dinner.',
+    'They _____ a good job on the poster.', 'Nora _____ her best in the race.',
+    'Dad _____ the cooking last night.', 'I _____ ten jumping jacks in class.',
+    'Our team _____ a warm-up before the game.', 'The children _____ a puzzle at the library.',
+    'My brother _____ his chores before lunch.', 'You _____ a kind thing for your friend.',
+    'Ella _____ a dance for the school show.', 'We _____ a fun activity in art class.',
+    'The class _____ an experiment with water.', 'I _____ the first page of my workbook.',
+    'Grandpa _____ some gardening in the morning.', 'They _____ a great job building the model.',
+    'She _____ a drawing for her teacher.', 'The helpers _____ their work before sunset.',
+  ] },
+  { verb: 'drink', answer: 'drank', sentences: [
+    'I _____ a glass of water after the game.', 'Leo _____ warm milk before bed.',
+    'We _____ lemonade at the picnic.', 'The puppy _____ water from its bowl.',
+    'Mia _____ orange juice with breakfast.', 'They _____ hot chocolate on the cold day.',
+    'Dad _____ a cup of tea in the morning.', 'The players _____ water during the break.',
+    'I _____ apple juice with my lunch.', 'Grandma _____ some water after her walk.',
+    'The children _____ milk at snack time.', 'Sam _____ from his new water bottle.',
+    'We _____ soup from our cups at lunch.', 'The thirsty horse _____ from the stream.',
+    'She _____ a smoothie after swimming.', 'My friends _____ water before the race.',
+    'The baby _____ from a little cup.', 'I _____ warm tea when I had a cold.',
+    'Our class _____ water after PE.', 'He _____ a small glass of juice.',
+  ] },
+  { verb: 'drive', answer: 'drove', sentences: [
+    'Mum _____ us to school yesterday.', 'Dad _____ the car to the farm.',
+    'Our taxi _____ slowly through town.', 'Aunt May _____ to our house on Sunday.',
+    'The bus _____ over the bridge.', 'Grandpa _____ us to the zoo last week.',
+    'The delivery driver _____ the van to the shop.', 'Mum _____ home after work.',
+    'The teacher _____ the minibus on our trip.', 'Dad _____ along the quiet country road.',
+    'Our neighbour _____ to the market in the morning.', 'The driver _____ carefully in the rain.',
+    'Auntie _____ us to the swimming pool.', 'The bus _____ past the green fields.',
+    'Grandma _____ her little car to the library.', 'The coach _____ the team to the match.',
+    'Mum _____ across town to visit her friend.', 'The farmer _____ his tractor to the barn.',
+    'Dad _____ us back home before dinner.', 'The taxi _____ to the train station.',
+  ] },
+  { verb: 'eat', answer: 'ate', sentences: [
+    'I _____ a cheese sandwich for lunch.', 'We _____ watermelon in the garden.',
+    'Mina _____ her breakfast before school.', 'The rabbits _____ carrots from the basket.',
+    'Dad _____ pasta for dinner last night.', 'They _____ their snacks after the game.',
+    'My little brother _____ all his peas.', 'The class _____ fruit during the break.',
+    'I _____ a warm bowl of soup at lunch.', 'The goats _____ leaves by the fence.',
+    'Grandma _____ a slice of apple pie.', 'We _____ pancakes on Sunday morning.',
+    'Sam _____ his picnic under a tree.', 'The ducks _____ crumbs by the pond.',
+    'She _____ rice and vegetables for dinner.', 'Our family _____ together at the table.',
+    'The puppy _____ its dinner from the bowl.', 'I _____ two strawberries from the plant.',
+    'The children _____ popcorn during the film.', 'He _____ an orange after his walk.',
+  ] },
+  { verb: 'feel', answer: 'felt', sentences: [
+    'I _____ happy when my friend visited.', 'Maya _____ proud of her picture.',
+    'We _____ excited before the school trip.', 'The kitten _____ warm in its soft bed.',
+    'Dad _____ tired after the long walk.', 'They _____ better after a good rest.',
+    'Liam _____ nervous before the show.', 'The puppy _____ safe beside its mum.',
+    'I _____ cold outside without my coat.', 'Our team _____ cheerful after the game.',
+    'Grandma _____ much better in the morning.', 'She _____ surprised by the birthday cake.',
+    'The little bird _____ brave on its first flight.', 'You _____ very kind to the new student.',
+    'We _____ hungry after playing outside.', 'He _____ sad when the story ended.',
+    'The children _____ calm after the music.', 'I _____ sleepy on the ride home.',
+    'My sister _____ proud when she finished the puzzle.', 'Everyone _____ welcome at the party.',
+  ] },
+  { verb: 'fight', answer: 'fought', sentences: [
+    'The two teams _____ hard to win the game.', 'In the story, the knights _____ a dragon.',
+    'The puppies _____ over the same toy, so we gave them two.', 'Mum and Dad _____ a cold with rest and warm soup.',
+    'The brave hero _____ a monster in the story.', 'Our team _____ for the last point.',
+    'The squirrels _____ over a nut in the cartoon.', 'The players _____ fairly for the trophy.',
+    'The little robots _____ in the funny film.', 'The two boxers _____ in the sports story.',
+    'The fox and the bear _____ in the fable.', 'The team _____ back and won the match.',
+    'The brave mouse _____ the giant in the tale.', 'The players _____ for a place in the final.',
+    'The toy soldiers _____ in my make-believe game.', 'The friends _____ over a ball, then shared it.',
+    'The superheroes _____ the space monster together.', 'The wrestlers _____ in the school show.',
+    'The characters _____ for the magic key.', 'The two teams _____ until the final whistle.',
+  ] },
+  { verb: 'find', answer: 'found', sentences: [
+    'I _____ my missing sock under the bed.', 'Nina _____ a shiny shell at the beach.',
+    'We _____ the answer in our book.', 'Dad _____ his keys on the table.',
+    'The dog _____ a stick in the garden.', 'They _____ a quiet place to read.',
+    'Mum _____ my hat by the front door.', 'The children _____ a frog near the pond.',
+    'I _____ a funny note in my lunchbox.', 'Sam _____ his toy car behind the sofa.',
+    'The class _____ three shapes in the picture.', 'Grandpa _____ an old photo in a box.',
+    'She _____ a feather beside the tree.', 'We _____ our way back to the picnic spot.',
+    'The puppy _____ its ball in the grass.', 'You _____ the last piece of the puzzle.',
+    'Maya _____ a blue flower in the field.', 'The hikers _____ a path through the woods.',
+    'I _____ my library book in my backpack.', 'The family _____ a nice spot for lunch.',
+  ] },
+  { verb: 'fly', answer: 'flew', sentences: [
+    'The bird _____ over the tall trees.', 'My kite _____ high above the park.',
+    'We _____ to Ankara on a plane.', 'A butterfly _____ past the flowers.',
+    'The paper plane _____ across the room.', 'The geese _____ south for the winter.',
+    'Dad _____ to Izmir for a work trip.', 'The little bird _____ back to its nest.',
+    'Our kite _____ over the beach.', 'The plane _____ above the clouds.',
+    'A dragon _____ across the sky in the story.', 'The bees _____ from flower to flower.',
+    'My red balloon _____ up into the sky.', 'The owl _____ quietly through the night.',
+    'The toy helicopter _____ around the room.', 'The swans _____ over the lake.',
+    'We _____ home after our holiday.', 'The flag _____ in the strong wind.',
+    'A tiny insect _____ near the window.', 'The superhero _____ over the city in the comic.',
+  ] },
+  { verb: 'forget', answer: 'forgot', sentences: [
+    'I _____ my book at home yesterday.', 'Mert _____ to bring his lunchbox.',
+    'We _____ the name of the game.', 'She _____ her umbrella on the bus.',
+    'Dad _____ to buy the bread.', 'They _____ where they put the map.',
+    'I _____ my water bottle at school.', 'The boy _____ his lines in the play.',
+    'Mum _____ her glasses on the kitchen table.', 'You _____ to feed the fish this morning.',
+    'The class _____ the last word in the song.', 'I _____ my friend’s birthday, so I called her late.',
+    'He _____ to close the garden gate.', 'We _____ the picnic blanket in the car.',
+    'Aylin _____ her homework folder at home.', 'The tourists _____ the way back to the hotel.',
+    'My brother _____ his gloves at the park.', 'The team _____ to bring their ball.',
+    'I _____ the answer for a moment, then remembered it.', 'She _____ her library card in her coat pocket.',
+  ] },
+];
+
+const reviewSentences = [
+  { verb: 'be', answer: 'was', sentence: 'Yesterday, I _____ at the park.' },
+  { verb: 'be', answer: 'were', sentence: 'Last night, we _____ very tired.' },
+  { verb: 'beat', answer: 'beat', sentence: 'Mia _____ me in the game yesterday.' },
+  { verb: 'become', answer: 'became', sentence: 'The caterpillar _____ a butterfly.' },
+  { verb: 'begin', answer: 'began', sentence: 'The movie _____ at six o’clock last night.' },
+  { verb: 'break', answer: 'broke', sentence: 'I _____ my pencil by accident.' },
+  { verb: 'bring', answer: 'brought', sentence: 'Sam _____ his lunch to school yesterday.' },
+  { verb: 'build', answer: 'built', sentence: 'They _____ a big sandcastle at the beach.' },
+  { verb: 'buy', answer: 'bought', sentence: 'Dad _____ apples at the shop yesterday.' },
+  { verb: 'can', answer: 'could', sentence: 'When I was six, I _____ ride a bike.' },
+  { verb: 'catch', answer: 'caught', sentence: 'Lena _____ the ball during the game.' },
+  { verb: 'choose', answer: 'chose', sentence: 'He _____ the blue T-shirt at the shop.' },
+  { verb: 'come', answer: 'came', sentence: 'My cousin _____ to our house last Sunday.' },
+  { verb: 'cost', answer: 'cost', sentence: 'The toy _____ five lira at the shop.' },
+  { verb: 'cut', answer: 'cut', sentence: 'I _____ the paper with scissors yesterday.' },
+  { verb: 'be', answer: 'was', sentence: 'The soup _____ hot at lunchtime.' },
+  { verb: 'beat', answer: 'beat', sentence: 'Our school _____ the next match last week.' },
+  { verb: 'become', answer: 'became', sentence: 'The sky _____ dark before the storm.' },
+  { verb: 'begin', answer: 'began', sentence: 'The race _____ when the whistle blew.' },
+  { verb: 'break', answer: 'broke', sentence: 'The toy car _____ when it fell.' },
+];
+
+const hintByVerb = {
+  be: 'Birinin nerede olduğunu ya da nasıl hissettiğini anlatır.',
+  beat: 'Bir yarışta ya da oyunda rakibini yenmek.',
+  become: 'Tırtılın kelebeğe dönüşmesi.',
+  begin: 'Bir işe ilk adımı atmak.',
+  break: 'Bir şeyi parçalara ayırmak ya da bir şeyin bozulması.',
+  bring: 'Bir şeyi yanında getirip bulunduğun yere taşımak.',
+  build: 'Parçaları birleştirerek bir şey yapmak.',
+  buy: 'Bir şeyi para vererek almak.',
+  can: 'Geçmişte bir şeyi yapabilme gücüne sahip olmak.',
+  catch: 'Havada gelen topu ellerinle yakalamak.',
+  choose: 'İki ya da daha çok seçenekten birini belirlemek.',
+  come: 'Başka bir yerden bulunduğun yere gelmek.',
+  cost: 'Bir şeyin fiyatını söylemek.',
+  cut: 'Makasla kâğıdı parçalara ayırmak.',
+  do: 'Bir işi ya da ödevi yapmak.',
+  drink: 'Su ya da meyve suyu içmek.',
+  drive: 'Arabayı kullanmak.',
+  eat: 'Yemeği ağzına alıp yemek.',
+  feel: 'Mutlu, üzgün ya da yorgun olmak gibi bir duygu yaşamak.',
+  fight: 'Bir maçta ya da hikâyede karşı tarafla mücadele etmek.',
+  find: 'Kaybolan bir şeyi arayıp bulmak.',
+  fly: 'Kuşların ya da uçağın gökyüzünde ilerlemesi.',
+  forget: 'Bir şeyi hatırlayamamak.',
+};
+
 const questionLimits = { be: 16, beat: 15, become: 14, begin: 14, break: 14, bring: 14, build: 14, buy: 14, can: 14, catch: 14, choose: 14, come: 14, cost: 14, cut: 15 };
-const allQuestions = [];
-const longestQuestionGroup = Math.max(...questionGroups.map(({ verb }) => questionLimits[verb]));
-for (let round = 0; round < longestQuestionGroup; round += 1) {
-  questionGroups.forEach(({ verb, answer, sentences }) => {
-    if (round < questionLimits[verb]) {
-      allQuestions.push({ verb, answer, sentence: sentences[round].replace('_____', '<span class="blank">_____</span>') });
-    }
+
+function interleaveGroups(groups, prefix, limits = {}) {
+  const questions = [];
+  const maxLength = Math.max(...groups.map(({ verb, sentences }) => limits[verb] ?? sentences.length));
+  for (let round = 0; round < maxLength; round += 1) {
+    groups.forEach(({ verb, answer, answers, sentences }) => {
+      if (round < (limits[verb] ?? sentences.length)) {
+        questions.push({
+          id: `${prefix}-${verb}-${round + 1}`,
+          verb,
+          answer: answers?.[round] ?? answer,
+          hint: hintByVerb[verb],
+          sentence: sentences[round].replace('_____', '<span class="blank">_____</span>'),
+        });
+      }
+    });
+  }
+  return questions;
+}
+
+const oldQuestions = interleaveGroups(questionGroups, 'old', questionLimits);
+const reviewedQuestions = reviewSentences.map(({ verb, answer, sentence }, index) => ({
+  id: `review-${index + 1}`,
+  verb,
+  answer,
+  hint: hintByVerb[verb],
+  sentence: sentence.replace('_____', '<span class="blank">_____</span>'),
+}));
+const newQuestions = interleaveGroups(continuationGroups, 'new');
+const continuationQuestions = [];
+for (let round = 0; round < 20; round += 1) {
+  continuationQuestions.push(...newQuestions.slice(round * continuationGroups.length, (round + 1) * continuationGroups.length));
+  continuationQuestions.push(reviewedQuestions[round]);
+}
+const answerForms = [...new Set([...questionGroups, ...continuationGroups].map(({ answer }) => answer).concat(reviewSentences.map(({ answer }) => answer)))];
+
+function stableShuffle(items, seed) {
+  const result = [...items];
+  let state = Array.from(seed).reduce((value, char) => ((value * 31) + char.charCodeAt(0)) >>> 0, 7);
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    const target = state % (index + 1);
+    [result[index], result[target]] = [result[target], result[index]];
+  }
+  return result;
+}
+
+function makeOptions(question) {
+  const distractors = stableShuffle(answerForms.filter((answer) => answer !== question.answer), question.id).slice(0, 3);
+  return stableShuffle([question.answer, ...distractors], `${question.id}-options`);
+}
+
+function makeQuizzes(questions, firstNumber) {
+  return Array.from({ length: 10 }, (_, quizIndex) => {
+    const quizNumber = firstNumber + quizIndex;
+    const quizQuestions = questions.slice(quizIndex * 20, (quizIndex + 1) * 20).map((question, index) => ({
+      ...question,
+      mode: index % 2 === 0 ? 'typing' : 'choice',
+      options: makeOptions(question),
+    }));
+    return { id: `quiz-${String(quizNumber).padStart(2, '0')}`, number: quizNumber, questions: quizQuestions };
   });
 }
-const quizSets = Array.from({ length: 10 }, (_, quizIndex) => allQuestions.slice(quizIndex * 20, (quizIndex + 1) * 20));
+
+const quizSets = [...makeQuizzes(oldQuestions, 1), ...makeQuizzes(continuationQuestions, 11)];
+const questionById = new Map(quizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
 
 const welcomeView = document.querySelector('#welcome-view');
 const quizView = document.querySelector('#quiz-view');
 const finishView = document.querySelector('#finish-view');
 const sentenceText = document.querySelector('#sentence-text');
+const questionModeLabel = document.querySelector('#question-mode-label');
+const questionKicker = document.querySelector('#question-kicker');
+const questionNote = document.querySelector('#question-note');
 const answerInput = document.querySelector('#answer-input');
+const typingAnswer = document.querySelector('#typing-answer');
+const choiceAnswer = document.querySelector('#choice-answer');
+const choiceGrid = document.querySelector('#choice-grid');
 const checkButton = document.querySelector('#check-button');
 const nextButton = document.querySelector('#next-button');
 const feedback = document.querySelector('#answer-feedback');
 const hintButton = document.querySelector('#hint-button');
 const hintContent = document.querySelector('#verb-hint');
-const verbBase = document.querySelector('#verb-base');
 const progressCurrent = document.querySelector('#progress-current');
 const progressTotal = document.querySelector('#progress-total');
 const progressBar = document.querySelector('#progress-bar');
@@ -184,58 +405,175 @@ const progressFill = document.querySelector('#progress-fill');
 const quizNextPanel = document.querySelector('#quiz-next');
 const allQuizzesDonePanel = document.querySelector('#all-quizzes-done');
 const nextQuizTitle = document.querySelector('#next-quiz-title');
+const nextQuizDetail = document.querySelector('#next-quiz-detail');
 const continueQuizButton = document.querySelector('#continue-quiz-button');
 const nextQuizButton = document.querySelector('#next-quiz-button');
-const completedQuizStorageKey = 'gecmis-zaman-kulubu-completed-quizzes';
+const profileEntry = document.querySelector('#profile-entry');
+const profileNameInput = document.querySelector('#child-name');
+const progressHub = document.querySelector('#progress-hub');
+const profileControls = document.querySelector('#profile-controls');
+const activeChildName = document.querySelector('#active-child-name');
+const changeProfileButton = document.querySelector('#change-profile-button');
+const profilesStorageKey = 'gecmis-zaman-kulubu-child-profiles-v1';
+const legacyProgressKey = 'gecmis-zaman-kulubu-completed-quizzes';
+const legacyMigrationKey = 'gecmis-zaman-kulubu-legacy-progress-migrated-v1';
 
-function loadCompletedQuizzes() {
+function loadProfiles() {
   try {
-    const stored = JSON.parse(localStorage.getItem(completedQuizStorageKey) || '[]');
-    return new Set(Array.isArray(stored) ? stored.filter((quiz) => Number.isInteger(quiz) && quiz >= 0 && quiz < quizSets.length) : []);
+    const saved = JSON.parse(localStorage.getItem(profilesStorageKey) || '{}');
+    return saved && typeof saved === 'object' && !Array.isArray(saved) ? Object.assign(Object.create(null), saved) : Object.create(null);
   } catch {
-    return new Set();
+    return {};
   }
 }
 
-const completedQuizzes = loadCompletedQuizzes();
+function saveProfiles() {
+  try {
+    localStorage.setItem(profilesStorageKey, JSON.stringify(profiles));
+  } catch {
+    // Keep the current session usable when browser storage is unavailable.
+  }
+}
+
+const profiles = loadProfiles();
 let questionIndex = 0;
 let correctCount = 0;
 let hasAnswered = false;
-let selectedQuiz = 0;
-let questions = quizSets[selectedQuiz];
+let activeProfileKey = null;
+let activeProfile = null;
+let currentQuiz = null;
+let questions = [];
+let selectedChoice = '';
 
-progressTotal.textContent = String(questions.length);
-document.querySelector('#finish-total').textContent = String(questions.length);
-progressBar.setAttribute('aria-valuemax', String(questions.length));
+progressTotal.textContent = '20';
+progressBar.setAttribute('aria-valuemax', '20');
+
+function normalizeChildName(name) {
+  return name.trim().replace(/\s+/g, ' ').toLocaleLowerCase('tr');
+}
+
+function migrateLegacyProgress(profile) {
+  try {
+    if (localStorage.getItem(legacyMigrationKey) === 'done') return;
+    const oldCompleted = JSON.parse(localStorage.getItem(legacyProgressKey) || '[]');
+    if (Array.isArray(oldCompleted)) {
+      oldCompleted.forEach((oldQuizIndex) => {
+        if (Number.isInteger(oldQuizIndex) && oldQuizIndex >= 0 && oldQuizIndex < 10) {
+          const quizId = `quiz-${String(oldQuizIndex + 1).padStart(2, '0')}`;
+          if (!profile.completedQuizIds.includes(quizId)) profile.completedQuizIds.push(quizId);
+        }
+      });
+    }
+    localStorage.setItem(legacyMigrationKey, 'done');
+  } catch {
+    // The child can still create a profile if legacy browser storage is unavailable.
+  }
+}
+
+function activateProfile(name) {
+  const displayName = name.trim().replace(/\s+/g, ' ');
+  const key = normalizeChildName(displayName);
+  if (!key) return;
+
+  if (!profiles[key]) {
+    profiles[key] = { displayName, completedQuizIds: [], quizStates: {} };
+  }
+  const profile = profiles[key];
+  profile.displayName = displayName;
+  if (!Array.isArray(profile.completedQuizIds)) profile.completedQuizIds = [];
+  if (!profile.quizStates || typeof profile.quizStates !== 'object' || Array.isArray(profile.quizStates)) profile.quizStates = {};
+  migrateLegacyProgress(profile);
+  activeProfileKey = key;
+  activeProfile = profile;
+  activeChildName.textContent = displayName;
+  profileControls.hidden = false;
+  profileEntry.hidden = true;
+  progressHub.hidden = false;
+  updateHomeProgress();
+  saveProfiles();
+  welcomeView.hidden = false;
+  quizView.hidden = true;
+  finishView.hidden = true;
+}
+
+function showProfileEntry() {
+  activeProfileKey = null;
+  activeProfile = null;
+  profileControls.hidden = true;
+  profileEntry.hidden = false;
+  progressHub.hidden = true;
+  welcomeView.hidden = false;
+  quizView.hidden = true;
+  finishView.hidden = true;
+  profileNameInput.value = '';
+  profileNameInput.focus({ preventScroll: true });
+}
 
 function nextUncompletedQuiz() {
-  return quizSets.findIndex((_, quizIndex) => !completedQuizzes.has(quizIndex));
+  if (!activeProfile) return -1;
+  return quizSets.findIndex((quiz) => !activeProfile.completedQuizIds.includes(quiz.id));
 }
 
 function updateHomeProgress() {
-  const nextQuiz = nextUncompletedQuiz();
-  const allDone = nextQuiz === -1;
+  if (!activeProfile) return;
+  const nextQuizIndex = nextUncompletedQuiz();
+  const allDone = nextQuizIndex === -1;
   quizNextPanel.hidden = allDone;
   allQuizzesDonePanel.hidden = !allDone;
   if (!allDone) {
-    nextQuizTitle.textContent = `Quiz ${nextQuiz + 1} seni bekliyor`;
-    continueQuizButton.innerHTML = `Quiz ${nextQuiz + 1}'e başla <span aria-hidden="true">→</span>`;
+    const quiz = quizSets[nextQuizIndex];
+    nextQuizTitle.textContent = `${activeProfile.displayName}, Quiz ${quiz.number} seni bekliyor`;
+    continueQuizButton.innerHTML = `Quiz ${quiz.number}'e devam et <span aria-hidden="true">→</span>`;
+    const quizState = activeProfile.quizStates[quiz.id];
+    if (quizState?.questionIndex > 0) {
+      nextQuizDetail.textContent = `Kaldığın soru ${quizState.questionIndex + 1}/20 · İki soru türü karışık`;
+    } else {
+      nextQuizDetail.textContent = '20 soru · Yazarak ve seçeneklerden cevapla';
+    }
   }
 }
 
-function saveCompletedQuizzes() {
-  try {
-    localStorage.setItem(completedQuizStorageKey, JSON.stringify([...completedQuizzes]));
-  } catch {
-    // If browser storage is unavailable, keep progress for this page session only.
+function shuffle(items) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [result[index], result[target]] = [result[target], result[index]];
+  }
+  return result;
+}
+
+function focusCurrentAnswer() {
+  if (questions[questionIndex]?.mode === 'choice') {
+    choiceGrid.querySelector('.choice-option')?.focus({ preventScroll: true });
+  } else {
+    answerInput.focus({ preventScroll: true });
   }
 }
 
-updateHomeProgress();
+function makeChoiceButton(option, index) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'choice-option';
+  button.setAttribute('aria-pressed', 'false');
+  button.innerHTML = `<span class="choice-letter">${String.fromCharCode(65 + index)}</span><span></span>`;
+  button.lastElementChild.textContent = option;
+  button.addEventListener('click', () => {
+    if (hasAnswered) return;
+    selectedChoice = option;
+    choiceGrid.querySelectorAll('.choice-option').forEach((choice) => {
+      choice.classList.toggle('is-selected', choice === button);
+      choice.setAttribute('aria-pressed', String(choice === button));
+    });
+    feedback.textContent = '';
+    feedback.classList.remove('is-wrong');
+  });
+  return button;
+}
 
 function renderQuestion() {
   const question = questions[questionIndex];
   hasAnswered = false;
+  selectedChoice = '';
   answerInput.value = '';
   answerInput.disabled = false;
   answerInput.classList.remove('is-correct', 'is-wrong');
@@ -243,75 +581,96 @@ function renderQuestion() {
   feedback.classList.remove('is-wrong');
   checkButton.disabled = false;
   nextButton.disabled = true;
-  nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
+  nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
   sentenceText.innerHTML = question.sentence;
-  verbBase.textContent = question.verb;
+  hintContent.textContent = question.hint;
   hintContent.hidden = true;
   hintButton.hidden = false;
-  hintButton.textContent = 'İpucu';
+  hintButton.innerHTML = 'İpucu <span aria-hidden="true">?</span>';
   hintButton.setAttribute('aria-expanded', 'false');
+  const isChoice = question.mode === 'choice';
+  typingAnswer.hidden = isChoice;
+  choiceAnswer.hidden = !isChoice;
+  questionModeLabel.textContent = isChoice ? 'Doğru seçeneği bul' : 'Cümleyi tamamla';
+  questionKicker.textContent = isChoice ? 'DOĞRU CEVABI SEÇ' : 'BOŞLUĞU DOLDUR';
+  questionNote.textContent = isChoice ? 'Dört seçenekten birini işaretle.' : 'Büyük ya da küçük harfle yazabilirsin.';
+  choiceGrid.replaceChildren();
+  if (isChoice) question.options.forEach((option, index) => choiceGrid.append(makeChoiceButton(option, index)));
   progressCurrent.textContent = String(questionIndex + 1);
-  const progress = ((questionIndex + 1) / questions.length) * 100;
-  progressFill.style.width = `${progress}%`;
+  progressFill.style.width = `${((questionIndex + 1) / questions.length) * 100}%`;
   progressBar.setAttribute('aria-valuenow', String(questionIndex + 1));
 }
 
-function startQuiz(quizNumber = nextUncompletedQuiz()) {
-  if (quizNumber < 0) return;
-  selectedQuiz = quizNumber;
-  questions = quizSets[selectedQuiz];
-  questionIndex = 0;
+function startQuiz() {
+  if (!activeProfile) return;
+  const quizIndex = nextUncompletedQuiz();
+  if (quizIndex < 0) return;
+  currentQuiz = quizSets[quizIndex];
+  let state = activeProfile.quizStates[currentQuiz.id];
+  if (!state || !Array.isArray(state.questionOrder) || state.questionOrder.length !== currentQuiz.questions.length) {
+    state = { questionOrder: shuffle(currentQuiz.questions.map((question) => question.id)), questionIndex: 0 };
+    activeProfile.quizStates[currentQuiz.id] = state;
+  }
+  const knownIds = new Set(currentQuiz.questions.map((question) => question.id));
+  if (!state.questionOrder.every((id) => knownIds.has(id)) || new Set(state.questionOrder).size !== currentQuiz.questions.length) {
+    state.questionOrder = shuffle(currentQuiz.questions.map((question) => question.id));
+    state.questionIndex = 0;
+  }
+  if (!Number.isInteger(state.questionIndex) || state.questionIndex < 0 || state.questionIndex >= currentQuiz.questions.length) state.questionIndex = 0;
+  saveProfiles();
+  questions = state.questionOrder.map((id) => questionById.get(id));
+  questionIndex = Math.min(state.questionIndex || 0, questions.length - 1);
   correctCount = 0;
   welcomeView.hidden = true;
   finishView.hidden = true;
   quizView.hidden = false;
   renderQuestion();
-  window.setTimeout(() => answerInput.focus({ preventScroll: true }), 80);
+  window.setTimeout(focusCurrentAnswer, 80);
 }
 
 function checkAnswer() {
   if (hasAnswered) return;
-  const guess = answerInput.value.trim().toLocaleLowerCase('en');
+  const question = questions[questionIndex];
+  const guess = question.mode === 'choice' ? selectedChoice : answerInput.value.trim().toLocaleLowerCase('en');
   if (!guess) {
-    feedback.textContent = 'Önce cevabını yazmayı dene.';
+    feedback.textContent = question.mode === 'choice' ? 'Önce bir seçenek işaretle.' : 'Önce cevabını yazmayı dene.';
     feedback.classList.add('is-wrong');
-    answerInput.focus();
+    focusCurrentAnswer();
     return;
   }
 
   hasAnswered = true;
-  const correct = guess === questions[questionIndex].answer;
+  const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
   if (correct) {
     correctCount += 1;
     feedback.textContent = 'Evet, doğru cevap!';
-    answerInput.classList.add('is-correct');
+    if (question.mode === 'typing') answerInput.classList.add('is-correct');
   } else {
-    feedback.innerHTML = `Güzel deneme! Doğru cevap: <b>${questions[questionIndex].answer}</b>.`;
+    feedback.innerHTML = `Güzel deneme! Doğru cevap: <b>${question.answer}</b>.`;
     feedback.classList.add('is-wrong');
-    answerInput.classList.add('is-wrong');
+    if (question.mode === 'typing') answerInput.classList.add('is-wrong');
   }
   answerInput.disabled = true;
   checkButton.disabled = true;
+  choiceGrid.querySelectorAll('.choice-option').forEach((choice) => { choice.disabled = true; });
   nextButton.disabled = false;
   nextButton.focus();
 }
 
 function showFinish() {
-  completedQuizzes.add(selectedQuiz);
-  saveCompletedQuizzes();
+  activeProfile.completedQuizIds.push(currentQuiz.id);
+  delete activeProfile.quizStates[currentQuiz.id];
+  saveProfiles();
   updateHomeProgress();
   quizView.hidden = true;
   finishView.hidden = false;
-  document.querySelector('#score-count').textContent = String(correctCount);
-  document.querySelector('#finish-total').textContent = String(questions.length);
-  document.querySelector('#finish-title').textContent = `Quiz ${selectedQuiz + 1} tamamlandı!`;
-  const copy = nextUncompletedQuiz() === -1
-    ? 'On quizin tamamını bitirdin. Harika çalıştın!'
-    : correctCount === questions.length
-      ? 'Bütün cevapları buldun. Sıradaki quiz hazır olduğunda devam edebilirsin.'
-      : 'Her deneme yeni bir şey öğretir. Bu quiz tamamlandı; hazırsan sıradakine geçebilirsin.';
-  document.querySelector('#finish-copy').textContent = copy;
-  nextQuizButton.hidden = nextUncompletedQuiz() === -1;
+  document.querySelector('#finish-title').textContent = `Quiz ${currentQuiz.number} tamamlandı!`;
+  const allDone = nextUncompletedQuiz() === -1;
+  document.querySelector('#finish-copy').textContent = allDone
+    ? 'Yirmi quizin hepsini bitirdin. Harika çalıştın!'
+    : `Bu oturumda ${correctCount}/20 doğru yaptın. Hazır olduğunda sıradaki quize geçebilirsin.`;
+  document.querySelector('#finish-score').textContent = allDone ? `Son quizde ${correctCount}/20 doğru yaptın.` : '';
+  nextQuizButton.hidden = allDone;
 }
 
 function nextQuestion() {
@@ -321,12 +680,19 @@ function nextQuestion() {
     return;
   }
   questionIndex += 1;
+  activeProfile.quizStates[currentQuiz.id].questionIndex = questionIndex;
+  saveProfiles();
   renderQuestion();
-  answerInput.focus({ preventScroll: true });
+  focusCurrentAnswer();
 }
 
-continueQuizButton.addEventListener('click', () => startQuiz());
-nextQuizButton.addEventListener('click', () => startQuiz());
+profileEntry.addEventListener('submit', (event) => {
+  event.preventDefault();
+  activateProfile(profileNameInput.value);
+});
+changeProfileButton.addEventListener('click', showProfileEntry);
+continueQuizButton.addEventListener('click', startQuiz);
+nextQuizButton.addEventListener('click', startQuiz);
 hintButton.addEventListener('click', () => {
   const isExpanded = hintButton.getAttribute('aria-expanded') === 'true';
   hintContent.hidden = isExpanded;

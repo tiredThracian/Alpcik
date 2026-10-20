@@ -16,17 +16,21 @@
           <span class="brand-mark" aria-hidden="true">Aa</span>
           <span>Kelime Kulübü</span>
         </a>
+        <div class="profile-controls" id="profile-controls" hidden>
+          <span id="active-child-name"></span>
+          <button class="change-profile-button" id="change-profile-button" type="button">Çocuk değiştir</button>
+        </div>
       </header>
 
       <section class="welcome view" id="welcome-view" aria-labelledby="welcome-title">
         <div class="welcome-copy">
           <p class="eyebrow"><span class="eyebrow-line"></span> İngilizce • Düzensiz fiiller</p>
           <h1 id="welcome-title">Geçmiş zaman<br /><span>dedektifi</span></h1>
-          <p class="welcome-text">Cümlede eksik fiili bul, cevabını yaz ve kaleminle bir kez daha dene.</p>
+          <p class="welcome-text">Adını yaz, kaldığın quizden devam et. Cümleleri bazen yazarak bazen seçeneklerden cevapla.</p>
           <div class="welcome-facts" aria-label="Çalışma bilgileri">
-            <span><b>200</b> soru</span>
+            <span><b>400</b> soru</span>
             <span class="fact-divider" aria-hidden="true"></span>
-            <span><b>10 quiz</b> · her biri 20 soru</span>
+            <span><b>20 quiz</b> · her biri 20 soru</span>
           </div>
         </div>
 
@@ -43,24 +47,35 @@
           <span class="art-caption">Oku · düşün · yaz</span>
         </div>
 
-        <div class="quiz-next" id="quiz-next">
+        <form class="profile-entry" id="profile-entry">
+          <label for="child-name">Adın ne?</label>
+          <div class="profile-entry-row">
+            <input id="child-name" name="child-name" type="text" maxlength="30" autocomplete="name" placeholder="Adını yaz" required />
+            <button class="button button-primary" type="submit">Devam et <span aria-hidden="true">→</span></button>
+          </div>
+          <p>İlerlemen bu cihazdaki tarayıcıda saklanır.</p>
+        </form>
+
+        <div class="progress-hub" id="progress-hub" hidden>
+          <div class="quiz-next" id="quiz-next">
           <div>
             <p class="next-label">Sıradaki çalışma</p>
             <h2 id="next-quiz-title">Quiz 1 seni bekliyor</h2>
-            <span class="next-detail">20 soru · Cevaplarını yazıp kontrol et</span>
+            <span class="next-detail" id="next-quiz-detail">20 soru · Yazarak ve seçeneklerden cevapla</span>
           </div>
           <button class="button button-primary" id="continue-quiz-button" type="button">Başla <span aria-hidden="true">→</span></button>
-        </div>
-        <div class="all-quizzes-done" id="all-quizzes-done" hidden>
-          <span class="done-mark" aria-hidden="true">✓</span>
-          <div><h2>Bütün quizleri bitirdin!</h2><p>Harika çalıştın. 10 quizin tamamı tamamlandı.</p></div>
+          </div>
+          <div class="all-quizzes-done" id="all-quizzes-done" hidden>
+            <span class="done-mark" aria-hidden="true">✓</span>
+            <div><h2>Bütün quizleri bitirdin!</h2><p>Harika çalıştın. 20 quizin tamamı tamamlandı.</p></div>
+          </div>
         </div>
       </section>
 
       <section class="quiz view" id="quiz-view" aria-labelledby="question-title" hidden>
         <div class="quiz-heading">
           <div>
-            <p class="eyebrow"><span class="eyebrow-line"></span> Cümleyi tamamla</p>
+            <p class="eyebrow"><span class="eyebrow-line"></span> <span id="question-mode-label">Cümleyi tamamla</span></p>
             <h1 id="question-title">Dün ne oldu?</h1>
           </div>
           <div class="progress-copy"><span id="progress-current">1</span><span class="progress-slash">/</span><span id="progress-total">20</span></div>
@@ -72,21 +87,27 @@
 
         <article class="question-card" aria-live="polite">
           <div class="question-topline">
-            <span class="question-kicker">BOŞLUĞU DOLDUR</span>
+            <span class="question-kicker" id="question-kicker">BOŞLUĞU DOLDUR</span>
             <div class="hint-control">
               <button class="hint-button" id="hint-button" type="button" aria-expanded="false" aria-controls="verb-hint">İpucu <span aria-hidden="true">?</span></button>
-              <span class="verb-hint" id="verb-hint" hidden>Fiil: <b id="verb-base"></b></span>
+              <span class="verb-hint" id="verb-hint" hidden></span>
             </div>
           </div>
           <p class="sentence" id="sentence-text"></p>
-          <label class="answer-label" for="answer-input">Geçmiş hâlini klavyeyle yaz</label>
-          <div class="answer-row">
-            <input id="answer-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="answer-feedback" placeholder="Cevabını yaz" />
-            <button class="button button-check" id="check-button" type="button">Kontrol et</button>
+          <div id="typing-answer">
+            <label class="answer-label" for="answer-input">Geçmiş hâlini klavyeyle yaz</label>
+            <div class="answer-row">
+              <input id="answer-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="answer-feedback" placeholder="Cevabını yaz" />
+            </div>
           </div>
+          <div id="choice-answer" hidden>
+            <p class="answer-label">Doğru cevabı seç</p>
+            <div class="choice-grid" id="choice-grid" role="group" aria-label="Cevap seçenekleri"></div>
+          </div>
+          <div class="answer-submit"><button class="button button-check" id="check-button" type="button">Kontrol et</button></div>
           <p class="feedback" id="answer-feedback" aria-live="polite"></p>
           <div class="question-actions">
-            <span class="tiny-note">Büyük ya da küçük harfle yazabilirsin.</span>
+            <span class="tiny-note" id="question-note">Büyük ya da küçük harfle yazabilirsin.</span>
             <button class="button button-next" id="next-button" type="button" disabled>Sonraki <span aria-hidden="true">→</span></button>
           </div>
         </article>
@@ -98,7 +119,7 @@
         <p class="eyebrow"><span class="eyebrow-line"></span> Çalışma tamamlandı</p>
         <h1 id="finish-title">Harika iş çıkardın!</h1>
         <p class="finish-copy" id="finish-copy"></p>
-        <div class="finish-score"><span id="score-count">0</span><span>/ <b id="finish-total">20</b> doğru cevap</span></div>
+        <p class="finish-score" id="finish-score"></p>
         <button class="button button-primary" id="next-quiz-button" type="button">Sıradaki quiz'e geç <span aria-hidden="true">→</span></button>
       </section>
 
