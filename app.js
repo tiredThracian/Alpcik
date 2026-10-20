@@ -610,6 +610,7 @@ function renderQuestion() {
   feedback.classList.remove('is-wrong');
   checkButton.disabled = false;
   nextButton.disabled = true;
+  skipRepeatButton.disabled = false;
   skipRepeatButton.hidden = !activeProfile.seenQuestionKeys.includes(questionSignature(question));
   nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
   sentenceText.innerHTML = question.sentence;
@@ -676,7 +677,7 @@ function checkAnswer() {
   const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
   if (correct) {
     correctCount += 1;
-    feedback.textContent = 'Evet, doğru cevap!';
+    feedback.textContent = 'Cevabın doğru! Sıradaki soruya geçiyoruz.';
     if (question.mode === 'typing') answerInput.classList.add('is-correct');
   } else {
     feedback.innerHTML = `Güzel deneme! Doğru cevap: <b>${question.answer}</b>.`;
@@ -686,8 +687,15 @@ function checkAnswer() {
   answerInput.disabled = true;
   checkButton.disabled = true;
   choiceGrid.querySelectorAll('.choice-option').forEach((choice) => { choice.disabled = true; });
-  nextButton.disabled = false;
-  nextButton.focus();
+  nextButton.disabled = correct;
+  skipRepeatButton.disabled = correct;
+  if (correct) {
+    window.setTimeout(() => {
+      if (hasAnswered && questions[questionIndex] === question) advanceQuestion();
+    }, 1100);
+  } else {
+    nextButton.focus();
+  }
 }
 
 function showFinish() {
