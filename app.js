@@ -395,6 +395,7 @@ const choiceAnswer = document.querySelector('#choice-answer');
 const choiceGrid = document.querySelector('#choice-grid');
 const checkButton = document.querySelector('#check-button');
 const nextButton = document.querySelector('#next-button');
+const skipRepeatButton = document.querySelector('#skip-repeat-button');
 const feedback = document.querySelector('#answer-feedback');
 const hintButton = document.querySelector('#hint-button');
 const hintContent = document.querySelector('#verb-hint');
@@ -452,6 +453,33 @@ function normalizeChildName(name) {
   return name.trim().replace(/\s+/g, ' ').toLocaleLowerCase('tr');
 }
 
+function questionSignature(question) {
+  const sentence = question.sentence
+    .replace(/<[^>]*>/g, ' ')
+    .toLocaleLowerCase('en')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  return `${sentence}|${question.answer.toLocaleLowerCase('en')}`;
+}
+
+function collectSeenQuestions(profile) {
+  const seen = new Set(Array.isArray(profile.seenQuestionKeys) ? profile.seenQuestionKeys : []);
+  for (const quiz of quizSets) {
+    if (profile.completedQuizIds.includes(quiz.id)) {
+      quiz.questions.forEach((question) => seen.add(questionSignature(question)));
+      continue;
+    }
+    const state = profile.quizStates[quiz.id];
+    if (!Array.isArray(state?.questionOrder)) continue;
+    const answeredIds = state.questionOrder.slice(0, Math.max(0, state.questionIndex || 0));
+    answeredIds.forEach((id) => {
+      const question = questionById.get(id);
+      if (question) seen.add(questionSignature(question));
+    });
+  }
+  profile.seenQuestionKeys = [...seen];
+}
+
 function migrateLegacyProgress(profile) {
   try {
     if (localStorage.getItem(legacyMigrationKey) === 'done') return;
@@ -476,13 +504,14 @@ function activateProfile(name) {
   if (!key) return;
 
   if (!profiles[key]) {
-    profiles[key] = { displayName, completedQuizIds: [], quizStates: {} };
+    profiles[key] = { displayName, completedQuizIds: [], quizStates: {}, seenQuestionKeys: [] };
   }
   const profile = profiles[key];
   profile.displayName = displayName;
   if (!Array.isArray(profile.completedQuizIds)) profile.completedQuizIds = [];
   if (!profile.quizStates || typeof profile.quizStates !== 'object' || Array.isArray(profile.quizStates)) profile.quizStates = {};
   migrateLegacyProgress(profile);
+  collectSeenQuestions(profile);
   activeProfileKey = key;
   activeProfile = profile;
   activeChildName.textContent = displayName;
@@ -581,6 +610,7 @@ function renderQuestion() {
   feedback.classList.remove('is-wrong');
   checkButton.disabled = false;
   nextButton.disabled = true;
+  skipRepeatButton.hidden = !activeProfile.seenQuestionKeys.includes(questionSignature(question));
   nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
   sentenceText.innerHTML = question.sentence;
   hintContent.textContent = question.hint;
@@ -640,6 +670,9 @@ function checkAnswer() {
   }
 
   hasAnswered = true;
+  const signature = questionSignature(question);
+  if (!activeProfile.seenQuestionKeys.includes(signature)) activeProfile.seenQuestionKeys.push(signature);
+  saveProfiles();
   const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
   if (correct) {
     correctCount += 1;
@@ -675,6 +708,15 @@ function showFinish() {
 
 function nextQuestion() {
   if (!hasAnswered) return;
+  advanceQuestion();
+}
+
+function skipRepeatQuestion() {
+  if (skipRepeatButton.hidden) return;
+  advanceQuestion();
+}
+
+function advanceQuestion() {
   if (questionIndex === questions.length - 1) {
     showFinish();
     return;
@@ -701,6 +743,7 @@ hintButton.addEventListener('click', () => {
 });
 checkButton.addEventListener('click', checkAnswer);
 nextButton.addEventListener('click', nextQuestion);
+skipRepeatButton.addEventListener('click', skipRepeatQuestion);
 answerInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
