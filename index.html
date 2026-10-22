@@ -18,11 +18,48 @@
         </a>
         <div class="profile-controls" id="profile-controls" hidden>
           <span id="active-child-name"></span>
+          <button class="change-profile-button" id="exercise-home-button" type="button">Egzersiz seç</button>
           <button class="change-profile-button" id="change-profile-button" type="button">Çocuk değiştir</button>
         </div>
       </header>
 
-      <section class="welcome view" id="welcome-view" aria-labelledby="welcome-title">
+      <section class="exercise-picker view" id="exercise-view" aria-labelledby="exercise-title">
+        <div class="exercise-picker-heading">
+          <p class="eyebrow"><span class="eyebrow-line"></span> KELİME KULÜBÜ</p>
+          <h1 id="exercise-title">Bugün ne çalışalım?</h1>
+          <p>Bir egzersiz seç, kaldığın yerden devam et.</p>
+        </div>
+        <div class="exercise-grid" aria-label="Egzersizler">
+          <button class="exercise-card exercise-card-active" id="choose-irregular-verbs" type="button">
+            <span class="exercise-card-art exercise-art-verbs" aria-hidden="true"><span>came</span><i>✳</i></span>
+            <span class="exercise-card-copy">
+              <span class="exercise-status">ŞİMDİ ÇALIŞ</span>
+              <strong>Düzensiz fiiller</strong>
+              <span>Cümlede geçmiş zaman fiilini bul ve cevabını yaz ya da seç.</span>
+              <span class="exercise-card-meta">20 quiz <span aria-hidden="true">·</span> 400 soru</span>
+            </span>
+            <span class="exercise-card-arrow" aria-hidden="true">→</span>
+          </button>
+          <article class="exercise-card exercise-card-soon">
+            <span class="exercise-card-art exercise-art-sentences" aria-hidden="true"><span>Aa</span><i>✦</i></span>
+            <span class="exercise-card-copy">
+              <span class="exercise-status">YAKINDA</span>
+              <strong>Cümle kurma</strong>
+              <span>Kelimeleri doğru sıraya dizerek cümleler oluştur.</span>
+            </span>
+          </article>
+          <article class="exercise-card exercise-card-soon">
+            <span class="exercise-card-art exercise-art-match" aria-hidden="true"><span>↔</span><i>✳</i></span>
+            <span class="exercise-card-copy">
+              <span class="exercise-status">YAKINDA</span>
+              <strong>Kelime eşleştirme</strong>
+              <span>İngilizce fiilleri geçmiş hâlleriyle eşleştir.</span>
+            </span>
+          </article>
+        </div>
+      </section>
+
+      <section class="welcome view" id="welcome-view" aria-labelledby="welcome-title" hidden>
         <div class="welcome-copy">
           <p class="eyebrow"><span class="eyebrow-line"></span> İngilizce • Düzensiz fiiller</p>
           <h1 id="welcome-title">Geçmiş zaman<br /><span>dedektifi</span></h1>

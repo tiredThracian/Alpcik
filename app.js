@@ -383,6 +383,7 @@ const quizSets = [...makeQuizzes(oldQuestions, 1), ...makeQuizzes(continuationQu
 const questionById = new Map(quizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
 
 const welcomeView = document.querySelector('#welcome-view');
+const exerciseView = document.querySelector('#exercise-view');
 const quizView = document.querySelector('#quiz-view');
 const finishView = document.querySelector('#finish-view');
 const sentenceText = document.querySelector('#sentence-text');
@@ -415,6 +416,8 @@ const progressHub = document.querySelector('#progress-hub');
 const profileControls = document.querySelector('#profile-controls');
 const activeChildName = document.querySelector('#active-child-name');
 const changeProfileButton = document.querySelector('#change-profile-button');
+const exerciseHomeButton = document.querySelector('#exercise-home-button');
+const chooseIrregularVerbsButton = document.querySelector('#choose-irregular-verbs');
 const profilesStorageKey = 'gecmis-zaman-kulubu-child-profiles-v1';
 const legacyProgressKey = 'gecmis-zaman-kulubu-completed-quizzes';
 const legacyMigrationKey = 'gecmis-zaman-kulubu-legacy-progress-migrated-v1';
@@ -520,6 +523,7 @@ function activateProfile(name) {
   progressHub.hidden = false;
   updateHomeProgress();
   saveProfiles();
+  exerciseView.hidden = true;
   welcomeView.hidden = false;
   quizView.hidden = true;
   finishView.hidden = true;
@@ -528,6 +532,7 @@ function activateProfile(name) {
 function showProfileEntry() {
   activeProfileKey = null;
   activeProfile = null;
+  exerciseView.hidden = true;
   profileControls.hidden = true;
   profileEntry.hidden = false;
   progressHub.hidden = true;
@@ -536,6 +541,22 @@ function showProfileEntry() {
   finishView.hidden = true;
   profileNameInput.value = '';
   profileNameInput.focus({ preventScroll: true });
+}
+
+function showExercisePicker() {
+  exerciseView.hidden = false;
+  welcomeView.hidden = true;
+  quizView.hidden = true;
+  finishView.hidden = true;
+}
+
+function chooseIrregularVerbs() {
+  exerciseView.hidden = true;
+  welcomeView.hidden = false;
+  quizView.hidden = true;
+  finishView.hidden = true;
+  if (activeProfile) updateHomeProgress();
+  else profileNameInput.focus({ preventScroll: true });
 }
 
 function nextUncompletedQuiz() {
@@ -652,6 +673,7 @@ function startQuiz() {
   questions = state.questionOrder.map((id) => questionById.get(id));
   questionIndex = Math.min(state.questionIndex || 0, questions.length - 1);
   correctCount = 0;
+  exerciseView.hidden = true;
   welcomeView.hidden = true;
   finishView.hidden = true;
   quizView.hidden = false;
@@ -741,6 +763,8 @@ profileEntry.addEventListener('submit', (event) => {
   activateProfile(profileNameInput.value);
 });
 changeProfileButton.addEventListener('click', showProfileEntry);
+exerciseHomeButton.addEventListener('click', showExercisePicker);
+chooseIrregularVerbsButton.addEventListener('click', chooseIrregularVerbs);
 continueQuizButton.addEventListener('click', startQuiz);
 nextQuizButton.addEventListener('click', startQuiz);
 hintButton.addEventListener('click', () => {
