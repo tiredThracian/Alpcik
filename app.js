@@ -380,13 +380,17 @@ function makeQuizzes(questions, firstNumber) {
 }
 
 const quizSets = [...makeQuizzes(oldQuestions, 1), ...makeQuizzes(continuationQuestions, 11)];
-const questionById = new Map(quizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
+const allQuizSets = [...quizSets, ...window.turkishTopics];
+const questionById = new Map(allQuizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
 
 const welcomeView = document.querySelector('#welcome-view');
 const exerciseView = document.querySelector('#exercise-view');
+const turkishTopicsView = document.querySelector('#turkish-topics-view');
+const turkishTopicGrid = document.querySelector('#turkish-topic-grid');
 const quizView = document.querySelector('#quiz-view');
 const finishView = document.querySelector('#finish-view');
 const sentenceText = document.querySelector('#sentence-text');
+const questionTitle = document.querySelector('#question-title');
 const questionModeLabel = document.querySelector('#question-mode-label');
 const questionKicker = document.querySelector('#question-kicker');
 const questionNote = document.querySelector('#question-note');
@@ -410,6 +414,8 @@ const nextQuizTitle = document.querySelector('#next-quiz-title');
 const nextQuizDetail = document.querySelector('#next-quiz-detail');
 const continueQuizButton = document.querySelector('#continue-quiz-button');
 const nextQuizButton = document.querySelector('#next-quiz-button');
+const turkishTopicsButton = document.querySelector('#turkish-topics-button');
+const backToExercisesButton = document.querySelector('#back-to-exercises');
 const profileEntry = document.querySelector('#profile-entry');
 const profileNameInput = document.querySelector('#child-name');
 const progressHub = document.querySelector('#progress-hub');
@@ -418,6 +424,11 @@ const activeChildName = document.querySelector('#active-child-name');
 const changeProfileButton = document.querySelector('#change-profile-button');
 const exerciseHomeButton = document.querySelector('#exercise-home-button');
 const chooseIrregularVerbsButton = document.querySelector('#choose-irregular-verbs');
+const chooseTurkishWordsButton = document.querySelector('#choose-turkish-words');
+const welcomeEyebrow = document.querySelector('.welcome-copy .eyebrow');
+const welcomeTitle = document.querySelector('#welcome-title');
+const welcomeText = document.querySelector('.welcome-text');
+const welcomeFacts = document.querySelector('.welcome-facts');
 const profilesStorageKey = 'gecmis-zaman-kulubu-child-profiles-v1';
 const legacyProgressKey = 'gecmis-zaman-kulubu-completed-quizzes';
 const legacyMigrationKey = 'gecmis-zaman-kulubu-legacy-progress-migrated-v1';
@@ -446,6 +457,7 @@ let hasAnswered = false;
 let activeProfileKey = null;
 let activeProfile = null;
 let currentQuiz = null;
+let selectedExercise = 'irregular';
 let questions = [];
 let selectedChoice = '';
 
@@ -457,17 +469,19 @@ function normalizeChildName(name) {
 }
 
 function questionSignature(question) {
-  const sentence = question.sentence
-    .replace(/<[^>]*>/g, ' ')
-    .toLocaleLowerCase('en')
+  const normalize = (value) => value.toLocaleLowerCase('tr')
+    .replace(/[çğıöşü]/g, (letter) => ({ ç: 'c', ğ: 'g', ı: 'i', ö: 'o', ş: 's', ü: 'u' })[letter])
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
-  return `${sentence}|${question.answer.toLocaleLowerCase('en')}`;
+  const sentence = question.sentence
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\*\*/g, ' ');
+  return `${normalize(sentence)}|${normalize(question.answer)}`;
 }
 
 function collectSeenQuestions(profile) {
   const seen = new Set(Array.isArray(profile.seenQuestionKeys) ? profile.seenQuestionKeys : []);
-  for (const quiz of quizSets) {
+  for (const quiz of allQuizSets) {
     if (profile.completedQuizIds.includes(quiz.id)) {
       quiz.questions.forEach((question) => seen.add(questionSignature(question)));
       continue;
@@ -524,7 +538,12 @@ function activateProfile(name) {
   updateHomeProgress();
   saveProfiles();
   exerciseView.hidden = true;
-  welcomeView.hidden = false;
+  if (selectedExercise === 'turkish') {
+    showTurkishTopics();
+  } else {
+    turkishTopicsView.hidden = true;
+    welcomeView.hidden = false;
+  }
   quizView.hidden = true;
   finishView.hidden = true;
 }
@@ -533,30 +552,109 @@ function showProfileEntry() {
   activeProfileKey = null;
   activeProfile = null;
   exerciseView.hidden = true;
+  turkishTopicsView.hidden = true;
   profileControls.hidden = true;
   profileEntry.hidden = false;
   progressHub.hidden = true;
   welcomeView.hidden = false;
   quizView.hidden = true;
   finishView.hidden = true;
+  setWelcomeCopy(selectedExercise);
   profileNameInput.value = '';
   profileNameInput.focus({ preventScroll: true });
 }
 
 function showExercisePicker() {
   exerciseView.hidden = false;
+  turkishTopicsView.hidden = true;
   welcomeView.hidden = true;
   quizView.hidden = true;
   finishView.hidden = true;
 }
 
 function chooseIrregularVerbs() {
+  selectedExercise = 'irregular';
+  setWelcomeCopy(selectedExercise);
   exerciseView.hidden = true;
+  turkishTopicsView.hidden = true;
   welcomeView.hidden = false;
   quizView.hidden = true;
   finishView.hidden = true;
   if (activeProfile) updateHomeProgress();
   else profileNameInput.focus({ preventScroll: true });
+}
+
+function setWelcomeCopy(exercise) {
+  welcomeView.dataset.exercise = exercise;
+  if (exercise === 'turkish') {
+    welcomeEyebrow.innerHTML = '<span class="eyebrow-line"></span> Türkçe • Kelimede anlam';
+    welcomeTitle.innerHTML = 'Kelime<br /><span>dedektifi</span>';
+    welcomeText.textContent = 'Eş ve zıt anlamı, eş sesliyi, mecazı ve terim anlamı keşfet.';
+    welcomeFacts.innerHTML = '<span><b>100</b> soru</span><span class="fact-divider" aria-hidden="true"></span><span><b>5 konu</b> · hepsi çoktan seçmeli</span>';
+  } else {
+    welcomeEyebrow.innerHTML = '<span class="eyebrow-line"></span> İngilizce • Düzensiz fiiller';
+    welcomeTitle.innerHTML = 'Geçmiş zaman<br /><span>dedektifi</span>';
+    welcomeText.textContent = 'Adını yaz, kaldığın quizden devam et. Cümleleri bazen yazarak bazen seçeneklerden cevapla.';
+    welcomeFacts.innerHTML = '<span><b>400</b> soru</span><span class="fact-divider" aria-hidden="true"></span><span><b>20 quiz</b> · her biri 20 soru</span>';
+  }
+}
+
+function chooseTurkishWords() {
+  selectedExercise = 'turkish';
+  setWelcomeCopy(selectedExercise);
+  exerciseView.hidden = true;
+  welcomeView.hidden = Boolean(activeProfile);
+  quizView.hidden = true;
+  finishView.hidden = true;
+  if (activeProfile) showTurkishTopics();
+  else {
+    turkishTopicsView.hidden = true;
+    profileNameInput.focus({ preventScroll: true });
+  }
+}
+
+function showTurkishTopics() {
+  exerciseView.hidden = true;
+  welcomeView.hidden = true;
+  turkishTopicsView.hidden = false;
+  quizView.hidden = true;
+  finishView.hidden = true;
+  renderTurkishTopics();
+}
+
+function renderTurkishTopics() {
+  turkishTopicGrid.replaceChildren();
+  window.turkishTopics.forEach((topic, index) => {
+    const button = document.createElement('button');
+    const state = activeProfile.quizStates[topic.id];
+    const isComplete = activeProfile.completedQuizIds.includes(topic.id);
+    button.type = 'button';
+    button.className = 'topic-card';
+    const number = document.createElement('span');
+    number.className = 'topic-number';
+    number.textContent = String(index + 1).padStart(2, '0');
+    const copy = document.createElement('span');
+    copy.className = 'topic-card-copy';
+    const title = document.createElement('strong');
+    title.textContent = topic.title;
+    const description = document.createElement('span');
+    description.textContent = topic.description;
+    const progress = document.createElement('span');
+    progress.className = 'topic-progress';
+    progress.textContent = isComplete
+      ? 'Tamamlandı · yeniden çöz'
+      : state?.questionIndex > 0
+        ? `Kaldığın soru ${state.questionIndex + 1}/20`
+        : '20 çoktan seçmeli soru';
+    const arrow = document.createElement('span');
+    arrow.className = 'topic-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
+    copy.append(title, description, progress);
+    button.append(number, copy, arrow);
+    button.addEventListener('click', () => startTurkishQuiz(topic));
+    turkishTopicGrid.append(button);
+  });
 }
 
 function nextUncompletedQuiz() {
@@ -634,7 +732,8 @@ function renderQuestion() {
   skipRepeatButton.disabled = false;
   skipRepeatButton.hidden = !activeProfile.seenQuestionKeys.includes(questionSignature(question));
   nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
-  sentenceText.innerHTML = question.sentence;
+  questionTitle.textContent = currentQuiz.isTurkish ? currentQuiz.title : 'Dün ne oldu?';
+  sentenceText.innerHTML = question.sentence.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   hintContent.textContent = question.hint;
   hintContent.hidden = true;
   hintButton.hidden = false;
@@ -647,17 +746,15 @@ function renderQuestion() {
   questionKicker.textContent = isChoice ? 'DOĞRU CEVABI SEÇ' : 'BOŞLUĞU DOLDUR';
   questionNote.textContent = isChoice ? 'Dört seçenekten birini işaretle.' : 'Büyük ya da küçük harfle yazabilirsin.';
   choiceGrid.replaceChildren();
-  if (isChoice) question.options.forEach((option, index) => choiceGrid.append(makeChoiceButton(option, index)));
+  if (isChoice) shuffle(question.options).forEach((option, index) => choiceGrid.append(makeChoiceButton(option, index)));
   progressCurrent.textContent = String(questionIndex + 1);
   progressFill.style.width = `${((questionIndex + 1) / questions.length) * 100}%`;
   progressBar.setAttribute('aria-valuenow', String(questionIndex + 1));
 }
 
-function startQuiz() {
+function enterQuiz(quiz) {
   if (!activeProfile) return;
-  const quizIndex = nextUncompletedQuiz();
-  if (quizIndex < 0) return;
-  currentQuiz = quizSets[quizIndex];
+  currentQuiz = quiz;
   let state = activeProfile.quizStates[currentQuiz.id];
   if (!state || !Array.isArray(state.questionOrder) || state.questionOrder.length !== currentQuiz.questions.length) {
     state = { questionOrder: shuffle(currentQuiz.questions.map((question) => question.id)), questionIndex: 0 };
@@ -676,9 +773,28 @@ function startQuiz() {
   exerciseView.hidden = true;
   welcomeView.hidden = true;
   finishView.hidden = true;
+  turkishTopicsView.hidden = true;
   quizView.hidden = false;
   renderQuestion();
   window.setTimeout(focusCurrentAnswer, 80);
+}
+
+function startQuiz() {
+  if (!activeProfile) return;
+  const quizIndex = nextUncompletedQuiz();
+  if (quizIndex < 0) return;
+  selectedExercise = 'irregular';
+  enterQuiz(quizSets[quizIndex]);
+}
+
+function startTurkishQuiz(topic) {
+  if (!activeProfile) return;
+  selectedExercise = 'turkish';
+  if (activeProfile.completedQuizIds.includes(topic.id)) {
+    activeProfile.completedQuizIds = activeProfile.completedQuizIds.filter((id) => id !== topic.id);
+    delete activeProfile.quizStates[topic.id];
+  }
+  enterQuiz(topic);
 }
 
 function checkAnswer() {
@@ -724,16 +840,25 @@ function showFinish() {
   activeProfile.completedQuizIds.push(currentQuiz.id);
   delete activeProfile.quizStates[currentQuiz.id];
   saveProfiles();
-  updateHomeProgress();
+  if (!currentQuiz.isTurkish) updateHomeProgress();
   quizView.hidden = true;
   finishView.hidden = false;
-  document.querySelector('#finish-title').textContent = `Quiz ${currentQuiz.number} tamamlandı!`;
-  const allDone = nextUncompletedQuiz() === -1;
-  document.querySelector('#finish-copy').textContent = allDone
-    ? 'Yirmi quizin hepsini bitirdin. Harika çalıştın!'
-    : `Bu oturumda ${correctCount}/20 doğru yaptın. Hazır olduğunda sıradaki quize geçebilirsin.`;
-  document.querySelector('#finish-score').textContent = allDone ? `Son quizde ${correctCount}/20 doğru yaptın.` : '';
-  nextQuizButton.hidden = allDone;
+  const isTurkish = Boolean(currentQuiz.isTurkish);
+  const allDone = isTurkish
+    ? window.turkishTopics.every((topic) => activeProfile.completedQuizIds.includes(topic.id))
+    : nextUncompletedQuiz() === -1;
+  document.querySelector('#finish-title').textContent = isTurkish ? `${currentQuiz.title} tamamlandı!` : `Quiz ${currentQuiz.number} tamamlandı!`;
+  document.querySelector('#finish-copy').textContent = isTurkish
+    ? allDone
+      ? 'Beş konunun hepsini tamamladın. Harika çalıştın!'
+      : 'Bu konuda 20 çoktan seçmeli soruyu bitirdin. İstersen başka bir konu seçebilirsin.'
+    : allDone
+      ? 'Yirmi quizin hepsini bitirdin. Harika çalıştın!'
+      : `Bu oturumda ${correctCount}/20 doğru yaptın. Hazır olduğunda sıradaki quize geçebilirsin.`;
+  document.querySelector('#finish-score').textContent = isTurkish ? `Bu çalışmada ${correctCount}/20 doğru yaptın.` : allDone ? `Son quizde ${correctCount}/20 doğru yaptın.` : '';
+  nextQuizButton.hidden = isTurkish || allDone;
+  turkishTopicsButton.hidden = !isTurkish;
+  if (isTurkish) turkishTopicsButton.innerHTML = allDone ? 'Konulara dön <span aria-hidden="true">→</span>' : 'Başka konu seç <span aria-hidden="true">→</span>';
 }
 
 function nextQuestion() {
@@ -765,6 +890,9 @@ profileEntry.addEventListener('submit', (event) => {
 changeProfileButton.addEventListener('click', showProfileEntry);
 exerciseHomeButton.addEventListener('click', showExercisePicker);
 chooseIrregularVerbsButton.addEventListener('click', chooseIrregularVerbs);
+chooseTurkishWordsButton.addEventListener('click', chooseTurkishWords);
+backToExercisesButton.addEventListener('click', showExercisePicker);
+turkishTopicsButton.addEventListener('click', showTurkishTopics);
 continueQuizButton.addEventListener('click', startQuiz);
 nextQuizButton.addEventListener('click', startQuiz);
 hintButton.addEventListener('click', () => {

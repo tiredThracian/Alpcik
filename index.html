@@ -7,6 +7,7 @@
     <meta name="description" content="Düzensiz fiilleri cümle içinde tamamlayarak çalış." />
     <title>Geçmiş Zaman Kulübü</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="turkish-questions.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -40,6 +41,16 @@
             </span>
             <span class="exercise-card-arrow" aria-hidden="true">→</span>
           </button>
+          <button class="exercise-card exercise-card-active" id="choose-turkish-words" type="button">
+            <span class="exercise-card-art exercise-art-turkish" aria-hidden="true"><span>kelime</span><i>✦</i></span>
+            <span class="exercise-card-copy">
+              <span class="exercise-status">ŞİMDİ ÇALIŞ</span>
+              <strong>Kelimede anlam</strong>
+              <span>Eş ve zıt anlamı, eş sesliyi, mecazı ve terim anlamı keşfet.</span>
+              <span class="exercise-card-meta">5 konu <span aria-hidden="true">·</span> 100 soru</span>
+            </span>
+            <span class="exercise-card-arrow" aria-hidden="true">→</span>
+          </button>
           <article class="exercise-card exercise-card-soon">
             <span class="exercise-card-art exercise-art-sentences" aria-hidden="true"><span>Aa</span><i>✦</i></span>
             <span class="exercise-card-copy">
@@ -57,6 +68,16 @@
             </span>
           </article>
         </div>
+      </section>
+
+      <section class="turkish-topics view" id="turkish-topics-view" aria-labelledby="turkish-topics-title" hidden>
+        <button class="back-link" id="back-to-exercises" type="button"><span aria-hidden="true">←</span> Egzersizlere dön</button>
+        <div class="exercise-picker-heading">
+          <p class="eyebrow"><span class="eyebrow-line"></span> TÜRKÇE • KELİMEDE ANLAM</p>
+          <h1 id="turkish-topics-title">Hangi konuyu çalışalım?</h1>
+          <p id="turkish-topics-intro">Bir konu seç; kaldığın sorudan devam et.</p>
+        </div>
+        <div class="topic-grid" id="turkish-topic-grid" aria-label="Türkçe konuları"></div>
       </section>
 
       <section class="welcome view" id="welcome-view" aria-labelledby="welcome-title" hidden>
@@ -159,6 +180,7 @@
         <p class="finish-copy" id="finish-copy"></p>
         <p class="finish-score" id="finish-score"></p>
         <button class="button button-primary" id="next-quiz-button" type="button">Sıradaki quiz'e geç <span aria-hidden="true">→</span></button>
+        <button class="button button-primary" id="turkish-topics-button" type="button" hidden>Konulara dön <span aria-hidden="true">→</span></button>
       </section>
 
     </main>
