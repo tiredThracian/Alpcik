@@ -8,6 +8,7 @@
     <title>Kelime Kulübü</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="turkish-questions.js" defer></script>
+    <script src="english-audio.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -174,6 +175,10 @@
           </div>
           <div class="answer-submit"><button class="button button-check" id="check-button" type="button">Kontrol et</button></div>
           <p class="feedback" id="answer-feedback" aria-live="polite"></p>
+          <div class="audio-actions" id="audio-actions" hidden>
+            <button class="audio-button" id="play-sentence" type="button"><span aria-hidden="true">🔊</span> Cümleyi dinle</button>
+            <button class="audio-button" id="play-sentence-slow" type="button"><span aria-hidden="true">🐢</span> Yavaş dinle</button>
+          </div>
           <div class="question-actions">
             <span class="tiny-note" id="question-note">Büyük ya da küçük harfle yazabilirsin.</span>
             <button class="skip-repeat-button" id="skip-repeat-button" type="button" hidden>Daha önce yaptım, geç</button>

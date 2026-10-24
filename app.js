@@ -394,6 +394,14 @@ const questionTitle = document.querySelector('#question-title');
 const questionModeLabel = document.querySelector('#question-mode-label');
 const questionKicker = document.querySelector('#question-kicker');
 const questionNote = document.querySelector('#question-note');
+const audioActions = document.querySelector('#audio-actions');
+function fullSentence(question) {
+  return question.sentence.replace(/<[^>]*>/g, '').replace(/\*\*/g, '').replace('_____', question.answer);
+}
+function playSentence(question, rate = 1) {
+  return window.EnglishAudio.play(`audio/en/${question.id}.mp3`, fullSentence(question), rate);
+}
+function wait(ms) { return new Promise((resolve) => window.setTimeout(resolve, ms)); }
 const answerInput = document.querySelector('#answer-input');
 const typingAnswer = document.querySelector('#typing-answer');
 const choiceAnswer = document.querySelector('#choice-answer');
@@ -714,6 +722,7 @@ function makeChoiceButton(option, index) {
     });
     feedback.textContent = '';
     feedback.classList.remove('is-wrong');
+    if (!currentQuiz.isTurkish) window.EnglishAudio.play(`audio/en/words/${option}.mp3`, option);
   });
   return button;
 }
@@ -730,6 +739,8 @@ function renderQuestion() {
   checkButton.disabled = false;
   nextButton.disabled = true;
   skipRepeatButton.disabled = false;
+  window.EnglishAudio.stop();
+  audioActions.hidden = true;
   skipRepeatButton.hidden = !activeProfile.seenQuestionKeys.includes(questionSignature(question));
   nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
   questionTitle.textContent = currentQuiz.isTurkish ? currentQuiz.title : 'Dün ne oldu?';
@@ -827,10 +838,12 @@ function checkAnswer() {
   choiceGrid.querySelectorAll('.choice-option').forEach((choice) => { choice.disabled = true; });
   nextButton.disabled = correct;
   skipRepeatButton.disabled = correct;
+  if (!currentQuiz.isTurkish) audioActions.hidden = false;
+  const spoken = currentQuiz.isTurkish ? Promise.resolve() : playSentence(question);
   if (correct) {
-    window.setTimeout(() => {
+    Promise.all([Promise.race([spoken, wait(9000)]), wait(1100)]).then(() => wait(400)).then(() => {
       if (hasAnswered && questions[questionIndex] === question) advanceQuestion();
-    }, 1100);
+    });
   } else {
     nextButton.focus();
   }
@@ -902,6 +915,8 @@ hintButton.addEventListener('click', () => {
   hintButton.innerHTML = isExpanded ? 'İpucu <span aria-hidden="true">?</span>' : 'İpucunu gizle';
 });
 checkButton.addEventListener('click', checkAnswer);
+document.querySelector('#play-sentence').addEventListener('click', () => { if (hasAnswered) playSentence(questions[questionIndex]); });
+document.querySelector('#play-sentence-slow').addEventListener('click', () => { if (hasAnswered) playSentence(questions[questionIndex], 0.7); });
 nextButton.addEventListener('click', nextQuestion);
 skipRepeatButton.addEventListener('click', skipRepeatQuestion);
 answerInput.addEventListener('keydown', (event) => {
