@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f8f4" />
+    <meta name="description" content="Almanca kelimeleri dinleyerek öğren, sonra kısa sorularla pekiştir." />
+    <title>Almanca çalışması · Kelime Kulübü</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="german.css" />
+    <script src="german-data.js" defer></script>
+    <script src="german.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell german-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Kelime Kulübü ana sayfa"><span class="brand-mark" aria-hidden="true">Aa</span><span>Kelime Kulübü</span></a>
+        <span class="german-top-label">DEUTSCH · ALMANCA</span>
+      </header>
+
+      <section class="german-intro" id="intro-view">
+        <p class="eyebrow"><span class="eyebrow-line"></span> DİNLE · ÖĞREN · SEÇ</p>
+        <h1>Almancayı <em>duyarak</em> öğren.</h1>
+        <p>Önce kelimeleri dinle. Hazır olunca küçük bir quiz çöz. Yanlış yaparsan tekrar deneyebilirsin.</p>
+        <form id="name-form" class="german-name-form">
+          <label for="german-name">Adın ne?</label>
+          <div class="german-form-row">
+            <input id="german-name" type="text" maxlength="30" autocomplete="name" placeholder="Adını yaz" required />
+            <button class="button button-primary" type="submit">Başla <span aria-hidden="true">→</span></button>
+          </div>
+          <small>Kaldığın yer bu cihazdaki tarayıcıda saklanır.</small>
+        </form>
+      </section>
+
+      <section class="german-topics" id="topics-view" hidden>
+        <div class="german-page-head">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> ALMANCA ÇALIŞMASI</p><h1>Bugün ne dinleyelim?</h1><p>Bir konu seç. Önce kelimelere bak, sonra kendini dene.</p></div>
+          <button class="german-profile-button" id="change-name" type="button">İsim: <strong id="current-name"></strong> · değiştir</button>
+        </div>
+        <div class="german-topic-grid" id="topic-list"></div>
+      </section>
+
+      <section class="german-study" id="study-view" hidden>
+        <button class="back-link" id="back-to-topics" type="button"><span aria-hidden="true">←</span> Konulara dön</button>
+        <div class="german-study-head"><div><p class="eyebrow"><span class="eyebrow-line"></span> <span id="study-mode">DİNLE VE ÖĞREN</span></p><h1 id="study-title"></h1></div><span class="german-count" id="study-count"></span></div>
+        <div class="german-progress"><span id="study-progress"></span></div>
+        <article class="german-word-card" id="word-card">
+          <p class="german-card-label" id="card-label">ÖNCE DİNLE</p>
+          <div class="german-word" id="german-word"></div>
+          <div class="german-meaning" id="german-meaning"></div>
+          <p class="german-learning-tip" id="learning-tip" hidden></p>
+          <div class="german-audio-actions">
+            <button class="german-sound-button" id="play-audio" type="button" aria-label="Almanca telaffuzu dinle"><span aria-hidden="true">▶</span> Dinle</button>
+            <button class="german-slow-button" id="play-slow" type="button">Yavaş dinle</button>
+          </div>
+          <div class="german-options" id="answer-options" hidden></div>
+          <p class="german-feedback" id="german-feedback" role="status" aria-live="polite"></p>
+          <button class="button button-primary german-next" id="next-card" type="button">Sonraki <span aria-hidden="true">→</span></button>
+        </article>
+        <p class="german-audio-note" id="audio-note" role="status" hidden>Ses açılamadı. Lütfen tekrar dene.</p>
+      </section>
+    </main>
+  </body>
+</html>

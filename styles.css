@@ -46,7 +46,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .exercise-picker-heading h1 { font-size: clamp(38px, 5vw, 54px); line-height: 1.06; }
 .exercise-picker-heading > p:last-child { margin: 12px 0 0; color: #718079; font-size: 15px; line-height: 1.6; }
 .exercise-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.exercise-card { min-width: 0; min-height: 310px; position: relative; display: flex; flex-direction: column; align-items: stretch; padding: 14px; overflow: hidden; border: 1px solid #e2eae2; border-radius: 19px; background: var(--paper); color: var(--ink); text-align: left; }
+.exercise-card { min-width: 0; min-height: 310px; position: relative; display: flex; flex-direction: column; align-items: stretch; padding: 14px; overflow: hidden; border: 1px solid #e2eae2; border-radius: 19px; background: var(--paper); color: var(--ink); text-align: left; text-decoration: none; }
 button.exercise-card { cursor: pointer; font: inherit; }
 .exercise-card-active { border-color: #d7e7da; box-shadow: 0 12px 32px #263d320b; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
 .exercise-card-active:hover { transform: translateY(-3px); border-color: #a9cfb4; box-shadow: 0 16px 34px #263d3212; }
@@ -63,6 +63,9 @@ button.exercise-card { cursor: pointer; font: inherit; }
 .exercise-art-turkish { background: #f7efe6; }
 .exercise-art-turkish > span { color: #b88555; font-family: var(--display); font-size: 27px; font-style: italic; }
 .exercise-art-turkish > i { position: absolute; top: 16px; right: 19px; color: #d1a33b; font-size: 23px; font-style: normal; }
+.exercise-art-german { background: #eaf0fc; }
+.exercise-art-german > span { color: #365d9d; font-family: var(--display); font-size: 33px; font-style: italic; }
+.exercise-art-german > i { position: absolute; top: 15px; right: 19px; color: #f2785c; font-size: 22px; font-style: normal; }
 .exercise-card-copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 17px 30px 6px 5px; }
 .exercise-status { margin-bottom: 8px; color: var(--mint-deep); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
 .exercise-card-copy strong { font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -.03em; }

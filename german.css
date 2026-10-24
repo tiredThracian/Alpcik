@@ -1,0 +1,66 @@
+.german-shell { --german-blue: #365d9d; --german-pale: #eaf0fc; --german-border: #dbe5f5; }
+.german-top-label { color: var(--german-blue); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.german-intro { flex: 1; width: min(780px, 100%); margin: 0 auto; padding: clamp(54px, 10vw, 120px) 0 80px; }
+.german-intro h1 { max-width: 720px; font-size: clamp(49px, 7vw, 83px); line-height: 1.04; }
+.german-intro h1 em { color: var(--german-blue); font-style: italic; }
+.german-intro > p:not(.eyebrow) { max-width: 520px; margin: 23px 0 32px; color: #65747b; font-size: 17px; line-height: 1.7; }
+.german-name-form { max-width: 530px; padding: 20px; border: 1px solid var(--german-border); border-radius: 18px; background: #fffefa; box-shadow: 0 15px 40px #2b43600b; }
+.german-name-form label { display: block; margin-bottom: 10px; font-size: 13px; font-weight: 800; }
+.german-form-row { display: flex; gap: 10px; }
+.german-form-row input { min-width: 0; height: 48px; flex: 1; padding: 0 14px; border: 1px solid var(--german-border); border-radius: 11px; background: #fbfdff; color: var(--ink); font-size: 16px; }
+.german-name-form small { display: block; margin-top: 10px; color: #8e9ba2; font-size: 11px; }
+.german-topics { flex: 1; padding: 54px 0 80px; }
+.german-page-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 34px; }
+.german-page-head h1 { font-size: clamp(38px, 5vw, 56px); }
+.german-page-head p:last-child { margin: 13px 0 0; color: #718079; font-size: 14px; line-height: 1.6; }
+.german-profile-button { flex: 0 0 auto; padding: 11px 14px; border: 1px solid var(--german-border); border-radius: 10px; background: #fff; color: #596b84; cursor: pointer; font-size: 11px; }
+.german-topic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.german-topic-card { min-width: 0; min-height: 116px; display: grid; grid-template-columns: 60px 1fr 24px; align-items: center; gap: 16px; padding: 17px; border: 1px solid var(--german-border); border-radius: 17px; background: #fffefa; color: var(--ink); cursor: pointer; text-align: left; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.german-topic-card:hover { transform: translateY(-2px); border-color: #93afd9; box-shadow: 0 12px 24px #274b7b13; }
+.german-topic-symbol { width: 60px; height: 60px; display: grid; place-items: center; border-radius: 14px; background: var(--german-pale); color: var(--german-blue); font-family: var(--display); font-size: 23px; font-weight: 700; }
+.german-topic-copy { min-width: 0; display: grid; gap: 3px; }
+.german-topic-copy strong { font-family: var(--display); font-size: 22px; font-weight: 600; }
+.german-topic-copy > span { color: #7f8ca2; font-size: 12px; }
+.german-topic-copy small { margin-top: 7px; color: var(--german-blue); font-size: 11px; font-weight: 700; }
+.german-topic-arrow { color: var(--german-blue); font-size: 19px; }
+.german-study { width: min(720px, 100%); flex: 1; margin: 0 auto; padding: 36px 0 80px; }
+.german-study-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.german-study-head h1 { font-size: clamp(35px, 5vw, 46px); }
+.german-count { color: #8896a6; font-size: 16px; font-weight: 800; white-space: nowrap; }
+.german-progress { height: 6px; overflow: hidden; margin: 24px 0 18px; border-radius: 10px; background: #e1e8ee; }
+.german-progress span { height: 100%; display: block; border-radius: inherit; background: var(--german-blue); transition: width .2s ease; }
+.german-word-card { min-height: 390px; display: flex; flex-direction: column; align-items: flex-start; padding: clamp(23px, 5vw, 40px); border: 1px solid var(--german-border); border-radius: 22px; background: #fffefa; box-shadow: 0 14px 38px #274b7b0b; }
+.german-card-label { margin: 0 0 20px; color: var(--german-blue); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.german-word { color: var(--ink); font-family: var(--display); font-size: clamp(38px, 7vw, 65px); font-weight: 600; letter-spacing: -.04em; line-height: 1.1; overflow-wrap: anywhere; }
+.german-meaning { min-height: 32px; margin-top: 16px; color: #61717c; font-size: clamp(18px, 3vw, 22px); font-weight: 600; }
+.german-learning-tip { margin: 12px 0 0; padding: 9px 12px; border-radius: 10px; background: #eef4fd; color: #526b8e; font-size: 12px; line-height: 1.5; }
+.german-audio-actions { display: flex; flex-wrap: wrap; gap: 9px; margin: 24px 0 18px; }
+.german-sound-button, .german-slow-button { min-height: 46px; padding: 0 16px; border: 1px solid var(--german-border); border-radius: 12px; background: var(--german-pale); color: var(--german-blue); cursor: pointer; font-size: 13px; font-weight: 800; }
+.german-sound-button { background: var(--german-blue); border-color: var(--german-blue); color: white; }
+.german-sound-button span { margin-right: 8px; font-size: 12px; }
+.german-sound-button:hover { background: #294c85; }
+.german-slow-button:hover { background: #dce7f8; }
+.german-options { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
+.german-option { min-height: 51px; padding: 10px 15px; border: 1px solid var(--german-border); border-radius: 11px; background: #f9fbfe; color: var(--ink); cursor: pointer; text-align: left; font-size: 15px; font-weight: 700; }
+.german-option:hover:not(:disabled) { border-color: #9cb5df; background: #eef4fd; }
+.german-option.is-correct { border-color: #6eb992; background: #edf8ef; color: #246a4b; }
+.german-option.is-wrong { border-color: #e7aaa1; background: #fff2ef; color: #aa584d; }
+.german-feedback { min-height: 20px; margin: auto 0 14px; color: #286b4e; font-size: 13px; font-weight: 700; }
+.german-next { align-self: flex-end; }
+.german-next:disabled { background: #c4cdc7; cursor: not-allowed; box-shadow: none; }
+.german-audio-note { color: #af5c4e; font-size: 12px; }
+@media (max-width: 700px) {
+  .german-topics { padding-top: 36px; }
+  .german-page-head { align-items: flex-start; flex-direction: column; }
+  .german-topic-grid { grid-template-columns: 1fr; }
+  .german-intro { padding-top: 54px; }
+  .german-study { padding-top: 25px; }
+}
+@media (max-width: 420px) {
+  .german-top-label { font-size: 9px; }
+  .german-form-row { flex-direction: column; }
+  .german-topic-card { grid-template-columns: 50px 1fr 16px; gap: 11px; padding: 12px; }
+  .german-topic-symbol { width: 50px; height: 50px; font-size: 20px; }
+  .german-topic-copy strong { font-size: 19px; }
+  .german-options { grid-template-columns: 1fr; }
+}
