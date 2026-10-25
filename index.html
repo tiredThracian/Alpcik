@@ -21,7 +21,7 @@
         <div class="profile-controls" id="profile-controls" hidden>
           <span id="active-child-name"></span>
           <button class="change-profile-button" id="exercise-home-button" type="button">Egzersiz seç</button>
-          <button class="change-profile-button" id="change-profile-button" type="button">Çocuk değiştir</button>
+          <button class="change-profile-button" id="change-profile-button" type="button">Öğrenci değiştir</button>
         </div>
       </header>
 
@@ -113,7 +113,6 @@
           <div class="pencil-shape"></div>
           <div class="spark spark-one">✳</div>
           <div class="spark spark-two">✦</div>
-          <span class="art-caption">Oku · düşün · yaz</span>
         </div>
 
         <form class="profile-entry" id="profile-entry">
@@ -122,7 +121,6 @@
             <input id="child-name" name="child-name" type="text" maxlength="30" autocomplete="name" placeholder="Adını yaz" required />
             <button class="button button-primary" type="submit">Devam et <span aria-hidden="true">→</span></button>
           </div>
-          <p>İlerlemen bu cihazdaki tarayıcıda saklanır.</p>
         </form>
 
         <div class="progress-hub" id="progress-hub" hidden>
@@ -182,10 +180,12 @@
           <div class="question-actions">
             <span class="tiny-note" id="question-note">Büyük ya da küçük harfle yazabilirsin.</span>
             <button class="skip-repeat-button" id="skip-repeat-button" type="button" hidden>Daha önce yaptım, geç</button>
-            <button class="button button-next" id="next-button" type="button" disabled>Sonraki <span aria-hidden="true">→</span></button>
+            <div class="nav-buttons">
+              <button class="button button-prev" id="prev-button" type="button" disabled><span aria-hidden="true">←</span> Önceki</button>
+              <button class="button button-next" id="next-button" type="button" disabled>Sonraki <span aria-hidden="true">→</span></button>
+            </div>
           </div>
         </article>
-        <p class="privacy-note"><span aria-hidden="true">✎</span> Cevapların kaydedilmez.</p>
       </section>
 
       <section class="finish view" id="finish-view" aria-labelledby="finish-title" hidden>

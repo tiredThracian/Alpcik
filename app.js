@@ -395,13 +395,13 @@ const questionModeLabel = document.querySelector('#question-mode-label');
 const questionKicker = document.querySelector('#question-kicker');
 const questionNote = document.querySelector('#question-note');
 const audioActions = document.querySelector('#audio-actions');
+const prevButton = document.querySelector('#prev-button');
 function fullSentence(question) {
   return question.sentence.replace(/<[^>]*>/g, '').replace(/\*\*/g, '').replace('_____', question.answer);
 }
 function playSentence(question, rate = 1) {
   return window.EnglishAudio.play(`audio/en/${question.id}.mp3`, fullSentence(question), rate);
 }
-function wait(ms) { return new Promise((resolve) => window.setTimeout(resolve, ms)); }
 const answerInput = document.querySelector('#answer-input');
 const typingAnswer = document.querySelector('#typing-answer');
 const choiceAnswer = document.querySelector('#choice-answer');
@@ -468,6 +468,7 @@ let currentQuiz = null;
 let selectedExercise = 'irregular';
 let questions = [];
 let selectedChoice = '';
+let answerResults = {};
 
 progressTotal.textContent = '20';
 progressBar.setAttribute('aria-valuemax', '20');
@@ -761,6 +762,35 @@ function renderQuestion() {
   progressCurrent.textContent = String(questionIndex + 1);
   progressFill.style.width = `${((questionIndex + 1) / questions.length) * 100}%`;
   progressBar.setAttribute('aria-valuenow', String(questionIndex + 1));
+  prevButton.disabled = questionIndex === 0;
+  const furthest = activeProfile.quizStates[currentQuiz.id]?.questionIndex ?? 0;
+  if (answerResults[question.id] || questionIndex < furthest) showSolved(question, answerResults[question.id]);
+}
+
+// A question that was already answered is shown solved, never asked again; audio stays available.
+function showSolved(question, result) {
+  hasAnswered = true;
+  const shown = result ? result.guess : question.answer;
+  const correct = result ? result.correct : true;
+  checkButton.disabled = true;
+  nextButton.disabled = false;
+  skipRepeatButton.hidden = true;
+  audioActions.hidden = Boolean(currentQuiz.isTurkish);
+  if (question.mode === 'typing') {
+    answerInput.value = shown;
+    answerInput.disabled = true;
+    answerInput.classList.add(correct ? 'is-correct' : 'is-wrong');
+  } else {
+    choiceGrid.querySelectorAll('.choice-option').forEach((choice) => {
+      choice.disabled = true;
+      const selected = choice.lastElementChild.textContent === shown;
+      choice.classList.toggle('is-selected', selected);
+      choice.setAttribute('aria-pressed', String(selected));
+    });
+  }
+  feedback.classList.toggle('is-wrong', !correct);
+  if (correct) feedback.textContent = result ? 'Cevabın doğru! Cümleyi tekrar dinleyebilirsin.' : `Bu soruyu çözdün. Doğru cevap: ${question.answer}.`;
+  else feedback.innerHTML = `Güzel deneme! Doğru cevap: <b>${question.answer}</b>.`;
 }
 
 function enterQuiz(quiz) {
@@ -781,6 +811,7 @@ function enterQuiz(quiz) {
   questions = state.questionOrder.map((id) => questionById.get(id));
   questionIndex = Math.min(state.questionIndex || 0, questions.length - 1);
   correctCount = 0;
+  answerResults = {};
   exerciseView.hidden = true;
   welcomeView.hidden = true;
   finishView.hidden = true;
@@ -824,9 +855,10 @@ function checkAnswer() {
   if (!activeProfile.seenQuestionKeys.includes(signature)) activeProfile.seenQuestionKeys.push(signature);
   saveProfiles();
   const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
+  answerResults[question.id] = { guess, correct };
   if (correct) {
     correctCount += 1;
-    feedback.textContent = 'Cevabın doğru! Sıradaki soruya geçiyoruz.';
+    feedback.textContent = 'Cevabın doğru! Cümleyi dinleyebilirsin, hazır olunca Sonraki düğmesine bas.';
     if (question.mode === 'typing') answerInput.classList.add('is-correct');
   } else {
     feedback.innerHTML = `Güzel deneme! Doğru cevap: <b>${question.answer}</b>.`;
@@ -836,17 +868,13 @@ function checkAnswer() {
   answerInput.disabled = true;
   checkButton.disabled = true;
   choiceGrid.querySelectorAll('.choice-option').forEach((choice) => { choice.disabled = true; });
-  nextButton.disabled = correct;
-  skipRepeatButton.disabled = correct;
-  if (!currentQuiz.isTurkish) audioActions.hidden = false;
-  const spoken = currentQuiz.isTurkish ? Promise.resolve() : playSentence(question);
-  if (correct) {
-    Promise.all([Promise.race([spoken, wait(9000)]), wait(1100)]).then(() => wait(400)).then(() => {
-      if (hasAnswered && questions[questionIndex] === question) advanceQuestion();
-    });
-  } else {
-    nextButton.focus();
+  nextButton.disabled = false;
+  skipRepeatButton.disabled = true;
+  if (!currentQuiz.isTurkish) {
+    audioActions.hidden = false;
+    playSentence(question);
   }
+  nextButton.focus();
 }
 
 function showFinish() {
@@ -890,10 +918,17 @@ function advanceQuestion() {
     return;
   }
   questionIndex += 1;
-  activeProfile.quizStates[currentQuiz.id].questionIndex = questionIndex;
+  const state = activeProfile.quizStates[currentQuiz.id];
+  state.questionIndex = Math.max(state.questionIndex || 0, questionIndex);
   saveProfiles();
   renderQuestion();
-  focusCurrentAnswer();
+  if (!hasAnswered) focusCurrentAnswer();
+}
+
+function previousQuestion() {
+  if (questionIndex === 0) return;
+  questionIndex -= 1;
+  renderQuestion();
 }
 
 profileEntry.addEventListener('submit', (event) => {
@@ -917,6 +952,7 @@ hintButton.addEventListener('click', () => {
 checkButton.addEventListener('click', checkAnswer);
 document.querySelector('#play-sentence').addEventListener('click', () => { if (hasAnswered) playSentence(questions[questionIndex]); });
 document.querySelector('#play-sentence-slow').addEventListener('click', () => { if (hasAnswered) playSentence(questions[questionIndex], 0.7); });
+prevButton.addEventListener('click', previousQuestion);
 nextButton.addEventListener('click', nextQuestion);
 skipRepeatButton.addEventListener('click', skipRepeatQuestion);
 answerInput.addEventListener('keydown', (event) => {
