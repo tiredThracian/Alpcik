@@ -431,7 +431,6 @@ const profileControls = document.querySelector('#profile-controls');
 const activeChildName = document.querySelector('#active-child-name');
 const changeProfileButton = document.querySelector('#change-profile-button');
 const exerciseHomeButton = document.querySelector('#exercise-home-button');
-const chooseIrregularVerbsButton = document.querySelector('#choose-irregular-verbs');
 const chooseTurkishWordsButton = document.querySelector('#choose-turkish-words');
 const welcomeEyebrow = document.querySelector('.welcome-copy .eyebrow');
 const welcomeTitle = document.querySelector('#welcome-title');
@@ -469,6 +468,7 @@ let selectedExercise = 'irregular';
 let questions = [];
 let selectedChoice = '';
 let answerResults = {};
+let hintLevel = 0;
 
 progressTotal.textContent = '20';
 progressBar.setAttribute('aria-valuemax', '20');
@@ -746,12 +746,14 @@ function renderQuestion() {
   nextButton.innerHTML = questionIndex === questions.length - 1 ? 'Quizi bitir <span aria-hidden="true">✓</span>' : 'Sonraki <span aria-hidden="true">→</span>';
   questionTitle.textContent = currentQuiz.isTurkish ? currentQuiz.title : 'Dün ne oldu?';
   sentenceText.innerHTML = question.sentence.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  hintLevel = 0;
   hintContent.textContent = question.hint;
   hintContent.hidden = true;
   hintButton.hidden = false;
   hintButton.innerHTML = 'İpucu <span aria-hidden="true">?</span>';
   hintButton.setAttribute('aria-expanded', 'false');
   const isChoice = question.mode === 'choice';
+  hintButton.innerHTML = isChoice ? 'İpucu <span aria-hidden="true">?</span>' : '1. ipucu';
   typingAnswer.hidden = isChoice;
   choiceAnswer.hidden = !isChoice;
   questionModeLabel.textContent = isChoice ? 'Doğru seçeneği bul' : 'Cümleyi tamamla';
@@ -937,13 +939,33 @@ profileEntry.addEventListener('submit', (event) => {
 });
 changeProfileButton.addEventListener('click', showProfileEntry);
 exerciseHomeButton.addEventListener('click', showExercisePicker);
-chooseIrregularVerbsButton.addEventListener('click', chooseIrregularVerbs);
 chooseTurkishWordsButton.addEventListener('click', chooseTurkishWords);
 backToExercisesButton.addEventListener('click', showExercisePicker);
 turkishTopicsButton.addEventListener('click', showTurkishTopics);
 continueQuizButton.addEventListener('click', startQuiz);
 nextQuizButton.addEventListener('click', startQuiz);
 hintButton.addEventListener('click', () => {
+  const question = questions[questionIndex];
+  if (question.mode === 'typing') {
+    if (hintLevel === 3) {
+      hintLevel = 0;
+      hintContent.hidden = true;
+      hintButton.setAttribute('aria-expanded', 'false');
+      hintButton.innerHTML = '1. ipucu';
+      return;
+    }
+    hintLevel += 1;
+    const hintText = hintLevel === 1
+      ? question.hint
+      : hintLevel === 2
+        ? `Dört aday: ${question.options.join(' · ')}`
+        : `Fiilin şimdiki hâli: ${question.verb}`;
+    hintContent.textContent = hintText;
+    hintContent.hidden = false;
+    hintButton.setAttribute('aria-expanded', 'true');
+    hintButton.innerHTML = hintLevel < 3 ? `${hintLevel + 1}. ipucu` : 'İpuçlarını gizle';
+    return;
+  }
   const isExpanded = hintButton.getAttribute('aria-expanded') === 'true';
   hintContent.hidden = isExpanded;
   hintButton.setAttribute('aria-expanded', String(!isExpanded));
