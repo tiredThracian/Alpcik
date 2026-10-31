@@ -367,8 +367,8 @@ function makeOptions(question) {
   return stableShuffle([question.answer, ...distractors], `${question.id}-options`);
 }
 
-function makeQuizzes(questions, firstNumber) {
-  return Array.from({ length: 10 }, (_, quizIndex) => {
+function makeQuizzes(questions, firstNumber, quizCount = 10) {
+  return Array.from({ length: quizCount }, (_, quizIndex) => {
     const quizNumber = firstNumber + quizIndex;
     const quizQuestions = questions.slice(quizIndex * 20, (quizIndex + 1) * 20).map((question, index) => ({
       ...question,
@@ -379,7 +379,45 @@ function makeQuizzes(questions, firstNumber) {
   });
 }
 
-const quizSets = [...makeQuizzes(oldQuestions, 1), ...makeQuizzes(continuationQuestions, 11)];
+const legacyQuizSets = [...makeQuizzes(oldQuestions, 1), ...makeQuizzes(continuationQuestions, 11)];
+
+function makeShuffledQuizSets(questions, firstNumber) {
+  const quizCount = 20;
+  const questionsPerQuiz = 20;
+  const verbs = [...new Set(questions.map((question) => question.verb))].sort();
+  const pools = new Map(verbs.map((verb) => [
+    verb,
+    stableShuffle(questions.filter((question) => question.verb === verb), `mix-v1-${verb}`),
+  ]));
+  const omissions = new Map(verbs.map((verb) => [verb, questionsPerQuiz - pools.get(verb).length]));
+
+  return Array.from({ length: quizCount }, (_, quizIndex) => {
+    const quizNumber = firstNumber + quizIndex;
+    const tieOrder = stableShuffle(verbs, `mix-v1-quiz-${quizNumber}-omissions`);
+    const tieRank = new Map(tieOrder.map((verb, index) => [verb, index]));
+    const omittedVerbs = tieOrder
+      .filter((verb) => omissions.get(verb) > 0)
+      .sort((first, second) => omissions.get(second) - omissions.get(first) || tieRank.get(first) - tieRank.get(second))
+      .slice(0, verbs.length - questionsPerQuiz);
+    omittedVerbs.forEach((verb) => omissions.set(verb, omissions.get(verb) - 1));
+
+    const mixedQuestions = verbs
+      .filter((verb) => !omittedVerbs.includes(verb))
+      .map((verb) => pools.get(verb).shift());
+    return {
+      id: `quiz-${String(quizNumber).padStart(2, '0')}`,
+      number: quizNumber,
+      questions: stableShuffle(mixedQuestions, `mix-v1-quiz-${quizNumber}-order`).map((question, index) => ({
+        ...question,
+        mode: index % 2 === 0 ? 'typing' : 'choice',
+        options: makeOptions(question),
+      })),
+    };
+  });
+}
+
+const quizSets = makeShuffledQuizSets([...oldQuestions, ...continuationQuestions], 1);
+const legacyQuestionById = new Map(legacyQuizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
 const allQuizSets = [...quizSets, ...window.turkishTopics];
 const questionById = new Map(allQuizSets.flatMap((quiz) => quiz.questions.map((question) => [question.id, question])));
 
@@ -506,6 +544,33 @@ function collectSeenQuestions(profile) {
   profile.seenQuestionKeys = [...seen];
 }
 
+function migrateQuizQuestionMix(profile) {
+  if (profile.quizQuestionMixVersion === 1) return;
+  const seen = new Set(Array.isArray(profile.seenQuestionKeys) ? profile.seenQuestionKeys : []);
+  const oldQuizIds = new Set(legacyQuizSets.map((quiz) => quiz.id));
+  for (const quiz of legacyQuizSets) {
+    if (profile.completedQuizIds.includes(quiz.id)) {
+      quiz.questions.forEach((question) => seen.add(questionSignature(question)));
+    }
+    const state = profile.quizStates[quiz.id];
+    if (!Array.isArray(state?.questionOrder)) continue;
+    const answeredIds = state.questionOrder.slice(0, Math.max(0, state.questionIndex || 0));
+    answeredIds.forEach((id) => {
+      const question = legacyQuestionById.get(id);
+      if (question) seen.add(questionSignature(question));
+    });
+  }
+  profile.seenQuestionKeys = [...seen];
+  profile.completedQuizIds = profile.completedQuizIds.filter((id) => !oldQuizIds.has(id));
+  oldQuizIds.forEach((id) => { delete profile.quizStates[id]; });
+  for (const quiz of quizSets) {
+    if (quiz.questions.every((question) => seen.has(questionSignature(question)))) {
+      profile.completedQuizIds.push(quiz.id);
+    }
+  }
+  profile.quizQuestionMixVersion = 1;
+}
+
 function migrateLegacyProgress(profile) {
   try {
     if (localStorage.getItem(legacyMigrationKey) === 'done') return;
@@ -537,6 +602,7 @@ function activateProfile(name) {
   if (!Array.isArray(profile.completedQuizIds)) profile.completedQuizIds = [];
   if (!profile.quizStates || typeof profile.quizStates !== 'object' || Array.isArray(profile.quizStates)) profile.quizStates = {};
   migrateLegacyProgress(profile);
+  migrateQuizQuestionMix(profile);
   collectSeenQuestions(profile);
   activeProfileKey = key;
   activeProfile = profile;
@@ -699,6 +765,14 @@ function shuffle(items) {
   return result;
 }
 
+function makeQuestionOrder(quiz, profile) {
+  if (quiz.isTurkish) return shuffle(quiz.questions.map((question) => question.id));
+  const seen = new Set(profile.seenQuestionKeys || []);
+  const unseenIds = quiz.questions.filter((question) => !seen.has(questionSignature(question))).map((question) => question.id);
+  const seenIds = quiz.questions.filter((question) => seen.has(questionSignature(question))).map((question) => question.id);
+  return [...shuffle(unseenIds), ...shuffle(seenIds)];
+}
+
 function focusCurrentAnswer() {
   if (questions[questionIndex]?.mode === 'choice') {
     choiceGrid.querySelector('.choice-option')?.focus({ preventScroll: true });
@@ -800,12 +874,12 @@ function enterQuiz(quiz) {
   currentQuiz = quiz;
   let state = activeProfile.quizStates[currentQuiz.id];
   if (!state || !Array.isArray(state.questionOrder) || state.questionOrder.length !== currentQuiz.questions.length) {
-    state = { questionOrder: shuffle(currentQuiz.questions.map((question) => question.id)), questionIndex: 0 };
+    state = { questionOrder: makeQuestionOrder(currentQuiz, activeProfile), questionIndex: 0 };
     activeProfile.quizStates[currentQuiz.id] = state;
   }
   const knownIds = new Set(currentQuiz.questions.map((question) => question.id));
   if (!state.questionOrder.every((id) => knownIds.has(id)) || new Set(state.questionOrder).size !== currentQuiz.questions.length) {
-    state.questionOrder = shuffle(currentQuiz.questions.map((question) => question.id));
+    state.questionOrder = makeQuestionOrder(currentQuiz, activeProfile);
     state.questionIndex = 0;
   }
   if (!Number.isInteger(state.questionIndex) || state.questionIndex < 0 || state.questionIndex >= currentQuiz.questions.length) state.questionIndex = 0;
