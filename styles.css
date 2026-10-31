@@ -72,6 +72,10 @@ button.exercise-card { cursor: pointer; font: inherit; }
 .exercise-card-copy > span:not(.exercise-status) { margin-top: 8px; color: #77847d; font-size: 12px; line-height: 1.55; }
 .exercise-card-copy .exercise-card-meta { margin-top: auto !important; padding-top: 12px; color: #98a39c !important; font-size: 10px !important; font-weight: 700; }
 .exercise-card-arrow { position: absolute; right: 18px; bottom: 17px; color: var(--mint-deep); font-size: 19px; }
+.exercise-language-tag { z-index: 2; position: absolute; top: 22px; left: 22px; padding: 6px 10px; border: 1px solid #ffffff; border-radius: 999px; box-shadow: 0 3px 9px #20313b12; font-size: 10px; font-weight: 800; letter-spacing: .035em; line-height: 1.2; pointer-events: none; }
+.language-english { background: #f5fff8ed; color: #217257; }
+.language-turkish { background: #fffaf3ed; color: #a46438; }
+.language-german { background: #f6f8ffed; color: #365d9d; }
 .exercise-card-soon { background: #fbfcfa; }
 .exercise-card-soon .exercise-status { color: #a0aaa3; }
 .exercise-card-soon .exercise-card-art { filter: saturate(.8); }
