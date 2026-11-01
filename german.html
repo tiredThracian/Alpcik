@@ -6,10 +6,11 @@
     <meta name="theme-color" content="#f4f8f4" />
     <meta name="description" content="Almanca kelimeleri dinleyerek öğren, sonra kısa sorularla pekiştir." />
     <title>Almanca çalışması · Kelime Kulübü</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261101-release1" />
     <link rel="stylesheet" href="german.css" />
     <script src="german-data.js" defer></script>
     <script src="german.js" defer></script>
+    <script src="profile-picker.js?v=20261101-release1" defer></script>
   </head>
   <body>
     <main class="app-shell german-shell">
@@ -23,7 +24,8 @@
         <h1>Almancayı <em>duyarak</em> öğren.</h1>
         <p>Önce kelimeleri dinle. Hazır olunca küçük bir quiz çöz. Yanlış yaparsan tekrar deneyebilirsin.</p>
         <form id="name-form" class="german-name-form">
-          <label for="german-name">Adın ne?</label>
+          <div class="saved-names" data-profile-picker="german-name" hidden></div>
+          <label for="german-name">Yeni isim yaz</label>
           <div class="german-form-row">
             <input id="german-name" type="text" maxlength="30" autocomplete="name" placeholder="Adını yaz" required />
             <button class="button button-primary" type="submit">Başla <span aria-hidden="true">→</span></button>

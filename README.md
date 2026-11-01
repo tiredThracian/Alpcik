@@ -1,6 +1,6 @@
 # Kelime Kulübü
 
-Telefon, tablet ve bilgisayarda kullanılabilen üç egzersiz içerir: 400 soruluk düzensiz fiil alıştırması, eş anlam, zıt anlam, eş sesli, mecaz anlam, terim anlam konularında 100 Türkçe sorusu ve başlangıç düzeyinde sesli Almanca çalışması. İngilizce quizlerde yazmalı ve çoktan seçmeli sorular karışıktır; Türkçe ve Almanca soruların tamamı çoktan seçmelidir.
+Telefon, tablet ve bilgisayarda kullanılabilen İngilizce, Türkçe ve Almanca derslerini içerir. İngilizcede 400 soruluk düzensiz fiil alıştırması ve 60 soruluk Celebrations Over Time kelime çalışması; Türkçede beş anlam konusunda 100 soru; Almancada başlangıç düzeyinde sekiz sesli konu bulunur. Düzensiz fiillerde yazmalı ve çoktan seçmeli sorular karışıktır; diğer çalışmaların soruları çoktan seçmelidir. Ayrıntılar için [yayın notlarına](YAYIN_NOTLARI.md) bakın.
 
 Çocuklar adlarıyla yerel profil açar ve kaldıkları egzersizden devam eder. Profil, quiz ilerlemesi ve karıştırılmış soru sırası bu tarayıcıda `localStorage` ile saklanır. Cevaplar ve puanlar kaydedilmez; sunucu veya veritabanı kullanılmaz. Profiller cihazlar arasında eşitlenmez. Aynı adı kullanan çocuklar aynı profili açar. Almanca ilerlemesi aynı tarayıcıda, ad bazında ayrı bir kayıtla tutulur.
 
@@ -13,6 +13,14 @@ Eski sürümde kaydedilmiş tamamlanan quiz numaraları, aynı tarayıcı ve ayn
 İngilizce sorular ve cevap anahtarı için [SORULAR.md](SORULAR.md), Türkçe sorular ve cevap anahtarı için [TURKCE_SORULAR.md](TURKCE_SORULAR.md) dosyasına bakın. İngilizce çalışmadaki kelime listesi `be` ile başlayıp `forget` ile biter.
 
 ## GitHub Pages'ta yayımlama
+
+Önce değişiklikler yerelde hazırlanır ve kullanıcı tarafından denenir. Kullanıcı yayınlanmasını istedikten sonra GitHub'a gönderilir. Ders sayfaları, yerel deneme adımları ve değişiklikler listesinin güncellenmesi için [yerel çalışma planına](YEREL_CALISMA_PLANI.md) bakın.
+
+Ana sayfa ders seçimini gösterir. İngilizce konuları `english.html`, Türkçe çalışması `turkish.html`, Almanca çalışması `german.html` üzerinden açılır. Önceden girilmiş isimler her çalışmanın girişinde seçilebilir; isimler ve ilerleme aynı tarayıcıdaki mevcut kayıtları kullanır.
+
+İngilizceye **Celebrations Over Time – Unit 2** kelime çalışması da eklendi. `english-only/celebrations.html` içinde 20 kelimenin her biri için üç özgün cümle bulunur: 60 çoktan seçmeli boşluk doldurma sorusu. Üç çalışmanın her birinde 20 kelimenin tamamı karışık sırayla gelir. Türkçe kavramsal ipuçları ve ad bazında devam etme vardır; bu egzersizin ilerlemesi `kelime-kulubu-celebrations-profiles-v1` anahtarında ayrı tutulur. İngilizce deposundaki `topics.html` iki İngilizce çalışmaya da giriş sağlar.
+
+Unit 2 seslerini üretmek için `python scripts/generate-celebrations-audio.py` çalıştırılır. Yalnızca altı örnek için `--sample` eklenir. Stil, Gemini Interactions API'deki `speech_metadata.style` alanıyla ayrı gönderilir; kelime ve cümle metnine yönerge eklenmez. Kayıtlar `english-only/audio/en/celebrations/` içinde, üretim bilgileri `manifest.json` dosyasında saklanır. Aynı ayarla tamamlanmış dosyalar tekrar üretilmez. Web sayfası üretim sırasında kullanılan API erişim bilgilerine ihtiyaç duymaz.
 
 1. Dosyaları GitHub deposunun kök dizinine yükleyin.
 2. Depoda **Settings → Pages** bölümünü açın.

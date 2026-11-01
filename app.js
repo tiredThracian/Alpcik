@@ -640,6 +640,10 @@ function showProfileEntry() {
 }
 
 function showExercisePicker() {
+  if (document.body.dataset.subject === 'turkish') {
+    location.href = 'index.html';
+    return;
+  }
   exerciseView.hidden = false;
   turkishTopicsView.hidden = true;
   welcomeView.hidden = true;
@@ -1057,3 +1061,6 @@ answerInput.addEventListener('keydown', (event) => {
     checkAnswer();
   }
 });
+
+// A dedicated subject URL preserves the existing quiz and profile storage.
+if (document.body.dataset.subject === 'turkish') chooseTurkishWords();
