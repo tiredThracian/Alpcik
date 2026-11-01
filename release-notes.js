@@ -1,6 +1,11 @@
 // Published release history. Update after local review when preparing a release.
 (() => {
   const releases = [
+    { date: '2026-11-01', label: '1 Kasım 2026', scope: ['home', 'english'], title: 'İngilizce sitesi doğrudan konu seçimiyle açılıyor', items: [
+      'İngilizce sitesinin ana adresi artık doğrudan İngilizce konularını gösteriyor.',
+      'Düzensiz fiiller ve Celebrations Over Time çalışmalarından biri konu kartıyla seçilebiliyor.',
+      'Düzensiz fiiller çalışmasının yeni adresi irregular-verbs.html; öğrenci isimleri ve kayıtlı ilerlemeler korunuyor.'
+    ] },
     { date: '2026-11-01', label: '1 Kasım 2026', scope: ['home', 'english'], title: 'Yeni çalışma: Celebrations Over Time – Unit 2', items: [
       '20 kelimeyi öğrenmek için 60 özgün, dört seçenekli boşluk doldurma sorusu eklendi.',
       'Üç çalışmanın her birinde bütün kelimeler yer alıyor. Sorular ve cevap seçenekleri karışık sırada geliyor.',

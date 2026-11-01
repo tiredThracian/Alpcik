@@ -1,5 +1,9 @@
 # Ders yapısı ve yerel değerlendirme
 
+## İngilizce açılış ekranı — yayın talebi alındı
+
+İngilizce sitesinin ana adresi (`index.html`) doğrudan `topics.html` sayfasına yönlenir. Düzensiz fiiller sayfası `irregular-verbs.html` adresine taşınmıştır; konu kartları ve ana sitenin İngilizce bağlantısı güncellenmiştir. İlerleme aynı tarayıcı kayıtlarından okunur. Yerelde hazırlandıktan sonra kullanıcı yayınlanmasını istedi.
+
 ## 1 Kasım 2026 sürümü — yerelde değerlendirilen değişiklikler
 
 - Ana sayfa yalnızca dersleri gösterir: İngilizce, Türkçe ve Almanca.

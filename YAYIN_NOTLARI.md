@@ -1,5 +1,9 @@
 # Yayın notları
 
+## 1 Kasım 2026 — İngilizce açılış ekranı
+
+İngilizce sitesinin ana adresi artık doğrudan `topics.html` konu seçimine yönleniyor. Düzensiz fiiller çalışması `irregular-verbs.html` adresine taşındı; hem konu kartı hem de ana sitedeki bağlantısı güncellendi. Öğrenci isimleri ve ilerlemeler aynı kayıt anahtarlarıyla korunuyor. Bu küçük güncelleme kullanıcı talebiyle yayınlandı.
+
 ## 1 Kasım 2026 — Dersler, kelime çalışması ve sesler
 
 ### Ders ve konu seçimi
