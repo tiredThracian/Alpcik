@@ -930,11 +930,24 @@ function checkAnswer() {
     return;
   }
 
+  const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
+  if (!currentQuiz.isTurkish && !correct) {
+    window.EnglishAudio.stop();
+    feedback.textContent = 'Cevabın yanlış. Bir daha dene; istersen ipucunu açabilirsin.';
+    feedback.classList.add('is-wrong');
+    if (question.mode === 'typing') {
+      answerInput.classList.add('is-wrong');
+      answerInput.focus({ preventScroll: true });
+      answerInput.select();
+    }
+    return;
+  }
   hasAnswered = true;
   const signature = questionSignature(question);
   if (!activeProfile.seenQuestionKeys.includes(signature)) activeProfile.seenQuestionKeys.push(signature);
   saveProfiles();
-  const correct = guess.toLocaleLowerCase('en') === question.answer.toLocaleLowerCase('en');
+  feedback.classList.remove('is-wrong');
+  answerInput.classList.remove('is-wrong');
   answerResults[question.id] = { guess, correct };
   if (correct) {
     correctCount += 1;

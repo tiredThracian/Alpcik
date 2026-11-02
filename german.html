@@ -7,9 +7,9 @@
     <meta name="description" content="Almanca kelimeleri dinleyerek öğren, sonra kısa sorularla pekiştir." />
     <title>Almanca çalışması · Kelime Kulübü</title>
     <link rel="stylesheet" href="styles.css?v=20261101-release1" />
-    <link rel="stylesheet" href="german.css" />
+    <link rel="stylesheet" href="german.css?v=20261102-previous1" />
     <script src="german-data.js" defer></script>
-    <script src="german.js" defer></script>
+    <script src="german.js?v=20261102-previous1" defer></script>
     <script src="profile-picker.js?v=20261101-release1" defer></script>
   </head>
   <body>
@@ -48,7 +48,7 @@
         <div class="german-progress"><span id="study-progress"></span></div>
         <article class="german-word-card" id="word-card">
           <p class="german-card-label" id="card-label">ÖNCE DİNLE</p>
-          <div class="german-word" id="german-word"></div>
+          <div class="german-word" id="german-word" lang="de"></div>
           <div class="german-meaning" id="german-meaning"></div>
           <p class="german-learning-tip" id="learning-tip" hidden></p>
           <div class="german-audio-actions">
@@ -57,7 +57,10 @@
           </div>
           <div class="german-options" id="answer-options" hidden></div>
           <p class="german-feedback" id="german-feedback" role="status" aria-live="polite"></p>
-          <button class="button button-primary german-next" id="next-card" type="button">Sonraki <span aria-hidden="true">→</span></button>
+          <div class="german-navigation">
+            <button class="german-slow-button" id="previous-card" type="button" disabled><span aria-hidden="true">←</span> Önceki</button>
+            <button class="button button-primary german-next" id="next-card" type="button">Sonraki <span aria-hidden="true">→</span></button>
+          </div>
         </article>
         <p class="german-audio-note" id="audio-note" role="status" hidden>Ses açılamadı. Lütfen tekrar dene.</p>
       </section>

@@ -22,6 +22,7 @@ const learningTip = $('#learning-tip');
 const answerOptions = $('#answer-options');
 const feedback = $('#german-feedback');
 const nextButton = $('#next-card');
+const previousButton = $('#previous-card');
 const audioNote = $('#audio-note');
 
 let profiles;
@@ -46,9 +47,9 @@ function roundsFor(currentTopic) {
   const remainder = currentTopic.items.length % roundSize;
   return Math.max(1, Math.ceil(currentTopic.items.length / roundSize) - (remainder > 0 && remainder < 4 ? 1 : 0));
 }
-function roundItems() {
-  const start = state().round * roundSize;
-  const end = state().round === roundsFor(topic) - 1 ? topic.items.length : start + roundSize;
+function roundItems(round = state().round) {
+  const start = round * roundSize;
+  const end = round === roundsFor(topic) - 1 ? topic.items.length : start + roundSize;
   return topic.items.slice(start, end);
 }
 
@@ -69,7 +70,13 @@ function currentItem() {
 }
 
 function stopAudio() {
-  if (audio) { audio.pause(); audio.currentTime = 0; audio = null; }
+  if (audio) {
+    audio.onended = null;
+    audio.onerror = null;
+    audio.pause();
+    audio.currentTime = 0;
+    audio = null;
+  }
 }
 
 function show(view) {
@@ -120,8 +127,19 @@ function openTopic(id) {
     profile().topics[id] = { round: 0, phase: 'learn', index: 0 };
     save();
   }
+  const currentState = state();
+  if (!currentState.quizSolvedThrough) {
+    currentState.quizSolvedThrough = {};
+    for (let round = 0; round < currentState.round; round += 1) {
+      currentState.quizSolvedThrough[round] = roundItems(round).length;
+    }
+    currentState.quizSolvedThrough[currentState.round] = currentState.phase === 'done'
+      ? roundItems().length : currentState.phase === 'quiz' ? currentState.index : 0;
+    save();
+  }
   renderStudy();
   show('study');
+  play(1);
 }
 
 function makeOption(text, isCorrect) {
@@ -129,10 +147,19 @@ function makeOption(text, isCorrect) {
   button.type = 'button';
   button.className = 'german-option';
   button.textContent = text;
+  if (answered) {
+    button.disabled = true;
+    button.classList.toggle('is-correct', isCorrect);
+  }
   button.addEventListener('click', () => {
     if (answered) return;
     if (isCorrect) {
       answered = true;
+      const currentState = state();
+      currentState.quizSolvedThrough[currentState.round] = Math.max(
+        currentState.quizSolvedThrough[currentState.round] || 0, currentState.index + 1
+      );
+      save();
       button.classList.add('is-correct');
       feedback.textContent = 'Doğru! Çok güzel.';
       nextButton.disabled = false;
@@ -170,6 +197,8 @@ function renderStudy() {
   const currentState = state();
   const items = roundItems();
   stopAudio();
+  audioNote.hidden = true;
+  previousButton.disabled = currentState.round === 0 && currentState.phase === 'learn' && currentState.index === 0;
   if (currentState.phase === 'done') {
     studyMode.textContent = 'BÖLÜM TAMAMLANDI';
     studyTitle.textContent = topic.title;
@@ -187,8 +216,8 @@ function renderStudy() {
     return;
   }
   answered = false;
-  audioNote.hidden = true;
   const quiz = currentState.phase === 'quiz';
+  answered = quiz && currentState.index < (currentState.quizSolvedThrough[currentState.round] || 0);
   const item = currentItem();
   studyMode.textContent = quiz ? 'ŞİMDİ SEN SEÇ' : 'DİNLE VE ÖĞREN';
   studyTitle.textContent = topic.title;
@@ -204,7 +233,8 @@ function renderStudy() {
   answerOptions.hidden = !quiz;
   feedback.textContent = '';
   if (quiz) renderOptions(item);
-  nextButton.disabled = quiz;
+  if (answered) feedback.textContent = 'Bu soruyu doğru cevapladın. Tekrar dinleyebilirsin.';
+  nextButton.disabled = quiz && !answered;
   nextButton.innerHTML = currentState.index === items.length - 1
     ? (quiz ? 'Bölümü bitir <span aria-hidden="true">→</span>' : 'Kendini dene <span aria-hidden="true">→</span>')
     : 'Sonraki <span aria-hidden="true">→</span>';
@@ -212,6 +242,7 @@ function renderStudy() {
 
 function next() {
   const currentState = state();
+  if (currentState.phase === 'quiz' && !answered) return;
   if (currentState.phase === 'done') {
     if (currentState.round + 1 >= roundsFor(topic)) {
       currentState.round = roundsFor(topic);
@@ -233,16 +264,41 @@ function next() {
   }
   save();
   renderStudy();
+  play(1);
 }
 
-function play(rate) {
+function previous() {
+  const currentState = state();
+  if (previousButton.disabled) return;
+  if (currentState.phase === 'done') {
+    currentState.phase = 'quiz';
+    currentState.index = roundItems().length - 1;
+  } else if (currentState.index > 0) {
+    currentState.index -= 1;
+  } else if (currentState.phase === 'quiz') {
+    currentState.phase = 'learn';
+    currentState.index = roundItems().length - 1;
+  } else if (currentState.round > 0) {
+    currentState.round -= 1;
+    currentState.phase = 'quiz';
+    currentState.index = roundItems().length - 1;
+  }
+  save();
+  renderStudy();
+  play(1);
+}
+
+function play(rate = 1) {
   if (!topic || state().phase === 'done') return;
   stopAudio();
+  audioNote.hidden = true;
   const item = currentItem();
-  audio = new Audio(`audio/de/${topic.id}-${item[0]}.mp3`);
-  audio.playbackRate = rate;
-  audio.onerror = () => { audioNote.hidden = false; };
-  audio.play().catch(() => { audioNote.hidden = false; });
+  const clip = new Audio(`audio/de/${topic.id}-${item[0]}.mp3?v=20261102-german2`);
+  audio = clip;
+  clip.playbackRate = rate;
+  clip.preservesPitch = true;
+  clip.onerror = () => { if (audio === clip) audioNote.hidden = false; };
+  clip.play().catch(() => { if (audio === clip) audioNote.hidden = false; });
 }
 
 nameForm.addEventListener('submit', (event) => {
@@ -261,3 +317,5 @@ $('#back-to-topics').addEventListener('click', renderTopics);
 $('#play-audio').addEventListener('click', () => play(1));
 $('#play-slow').addEventListener('click', () => play(0.78));
 nextButton.addEventListener('click', next);
+previousButton.addEventListener('click', previous);
+window.addEventListener('pagehide', stopAudio);

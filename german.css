@@ -47,6 +47,10 @@
 .german-option.is-wrong { border-color: #e7aaa1; background: #fff2ef; color: #aa584d; }
 .german-feedback { min-height: 20px; margin: auto 0 14px; color: #286b4e; font-size: 13px; font-weight: 700; }
 .german-next { align-self: flex-end; }
+.german-navigation { width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.german-navigation > button { min-height: 46px; }
+.german-navigation > button:disabled { cursor: not-allowed; }
+.german-navigation > .german-slow-button:disabled { opacity: .45; }
 .german-next:disabled { background: #c4cdc7; cursor: not-allowed; box-shadow: none; }
 .german-audio-note { color: #af5c4e; font-size: 12px; }
 @media (max-width: 700px) {

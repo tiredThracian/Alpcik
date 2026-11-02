@@ -1,5 +1,14 @@
 # Ders yapısı ve yerel değerlendirme
 
+## 2 Kasım 2026 — Almanca düzeltmesi, yayın talebi alındı
+
+- Konu açılınca ve Sonraki ile yeni kelimeye geçilince ses otomatik başlar. Bu, öğrenme kartlarında ve quizde uygulanır; bölüm sonu ekranında ses başlatılmaz.
+- Geçişte veya sayfadan ayrılınca önceki ses durur. Eski sesin hata bildirimi yeni kelimede gösterilmez.
+- Almanca MP3 dosyaları, Flash-Lite / Flash ve mevcut Kore/Aoede dağılımıyla yeniden üretilir. Stil alanında açıkça Almanya Almancası ve doğal Almanca telaffuz istenir; yönergeler okuma metnine eklenmez. Flash-Lite günlük kotası dolduğu için tamamlanan dosyalar korunarak kalanları Flash ile üretmek için `--model gemini-3.8-flash-tts --keep-ready` kullanılır. Günlük kota hatasında yeniden denenmez; kısa hız sınırlarında beklenir.
+- 162 kaydın tamamı yenilendi: 46 Flash-Lite, 101 Flash, 15 Gemini 3.1 Flash TTS. Son modelde eski TTS talimat biçimi ve açık Almanca dil ayarı kullanılır. Üretim kaydı `audio/de/manifest.json` dosyasındadır.
+- Ses ve uygulama URL'leri sürümlendi; eski telaffuzların önbellekten gelmesi önlenir.
+- Öğrenci kayıtları ve ilerleme aynı anahtarlarla korunur. Kullanıcının 2 Kasım yayın talebiyle GitHub Pages yayınına dahil edildi.
+
 ## İngilizce açılış ekranı — yayın talebi alındı
 
 İngilizce sitesinin ana adresi (`index.html`) doğrudan `topics.html` sayfasına yönlenir. Düzensiz fiiller sayfası `irregular-verbs.html` adresine taşınmıştır; konu kartları ve ana sitenin İngilizce bağlantısı güncellenmiştir. İlerleme aynı tarayıcı kayıtlarından okunur. Yerelde hazırlandıktan sonra kullanıcı yayınlanmasını istedi.
@@ -18,6 +27,19 @@
 - Unit 2 sesleri için `python scripts/generate-celebrations-audio.py` kullanılır; `--sample` yalnızca üç kelime ve üç cümleyi üretir. Flash-Lite / Kore ile sakin okuma stili, okunan metinden ayrı `speech_metadata.style` alanında gönderilir. Önceki yöntemde metne eklenen yönergeler de seslendirildiği için kullanılmaz. Her dosya ayrı üretilir; duraklamadan dosya ayırma yapılmaz. API hız sınırı gözetilir. Üretim kaydı `manifest.json` içindedir; aynı metin/model/stil ile üretilmiş dosyalar atlanır, eski yönergeli örnekler yeniden üretilir. Örnek sayfası `english-only/audio-preview.html` adresindedir. Egzersizde doğru cevaptan sonra otomatik cümle sesi, yeniden/yavaş dinleme ve kelime listesinden tek tek dinleme bulunur. Ses URL'leri eski yönergeli örneklerin önbellekte kalmasını önleyecek şekilde sürümlüdür.
 
 ## Yerelde deneme
+
+### 2 Kasım 2026 — Almancada önceki karta dönme (yayın talebi alındı)
+
+- Öğrenme kartlarına ve quiz sorularına Önceki düğmesi eklendi. Öğrenme/quiz ve bölüm sınırları arasında da geri dönülebilir; ilk kartta düğme pasiftir.
+- Geri dönülen kelimenin sesi otomatik çalar. Doğru cevaplanmış quiz soruları kilitli ve doğru seçenek işaretli açılır; yeniden çözmek gerekmez.
+- Çözülmüş sorular isim bazında saklanır. Eski kayıtlardaki ilerleme de korunarak bu yapıya aktarılır.
+
+### 2 Kasım 2026 — İngilizcede yanlış cevaptan sonra yeniden deneme (yayın talebi alındı)
+
+- Düzensiz fiillerde yanlış cevap doğru cevabı açığa çıkarmaz; öğrenciye yeniden denemesi söylenir. Yazmalı ve çoktan seçmeli sorularda doğru cevaba kadar tekrar denenebilir, ipuçları kullanılabilir.
+- Yanlış cevap soruyu çözülmüş olarak kaydetmez, Sonraki düğmesini açmaz ve tamamlanmış cümleyi seslendirmez. Doğru cevapta başarı mesajı ve cümle sesi gelir, Sonraki açılır.
+- Ana uygulamadaki İngilizce kodu da eşitlendi. Unit 2 zaten yeniden denemeye izin veriyordu.
+- Yerel inceleme adresi: `http://127.0.0.1:8766/english-only/irregular-verbs.html`.
 
 Proje klasöründe `python -m http.server 8766 --bind 127.0.0.1` çalıştırıp `http://127.0.0.1:8766/` adresini açın. Ana siteden İngilizceye giderken de yerel kopya açılır.
 

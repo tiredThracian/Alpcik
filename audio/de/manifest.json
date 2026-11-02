@@ -1,0 +1,1141 @@
+{
+  "clips": {
+    "months-februar.mp3": {
+      "file": "months-februar.mp3",
+      "text": "Februar",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "a2ed306f6e3cc6373e8c624486b43458869b7df68e80b02f6706f44f0e0a8e1f"
+    },
+    "months-juni.mp3": {
+      "file": "months-juni.mp3",
+      "text": "Juni",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "deeed64cd5e2d62ae128377b649b66add04ae37a5e0588664c99887f7805d452"
+    },
+    "months-august.mp3": {
+      "file": "months-august.mp3",
+      "text": "August",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "ac37ef2b94d1b91619bcb6e616902ff918cf97fbab09edf65403f07f1f864b29"
+    },
+    "months-oktober.mp3": {
+      "file": "months-oktober.mp3",
+      "text": "Oktober",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "a045274fa226f37dcc4922b89a6c243839c08da574487cfebd4aab591988c8f2"
+    },
+    "months-november.mp3": {
+      "file": "months-november.mp3",
+      "text": "November",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "7067c24902064b3d07127202d2e29568affc18e3a5956e2ccf48af8629152f74"
+    },
+    "months-dezember.mp3": {
+      "file": "months-dezember.mp3",
+      "text": "Dezember",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "f157b1c727520d4488d344da44c5181b05aac9a5080e1463018f13ec2d95dc3c"
+    },
+    "colors-schwarz.mp3": {
+      "file": "colors-schwarz.mp3",
+      "text": "schwarz",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "59c9020d9d325bb62d66b99f9c95134c93176948adc2e5df4a82a0e310e96954"
+    },
+    "colors-orange.mp3": {
+      "file": "colors-orange.mp3",
+      "text": "orange",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "428a9a99b329f6f7754c10f6af4369e25a88b53b466011ce668d430086accba0"
+    },
+    "colors-rosa.mp3": {
+      "file": "colors-rosa.mp3",
+      "text": "rosa",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "c0233f8b48b8dbdcccfecbf51a21dece0310d578724aac5a380ac1655a484aca"
+    },
+    "colors-braun.mp3": {
+      "file": "colors-braun.mp3",
+      "text": "braun",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "91a5a252a8a2723238413038cfc1a7bb1145019d769194eec64e5763a60957f3"
+    },
+    "months-januar.mp3": {
+      "file": "months-januar.mp3",
+      "text": "Januar",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "7c81ca9a4bffc14a3ee3892adf8d134eb5110bd070b0a014b0b7cc0163cabe89"
+    },
+    "months-maerz.mp3": {
+      "file": "months-maerz.mp3",
+      "text": "März",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "7ec4972430166d4f0916dd4bd99650f0e082d6cf41aabcdca0a44e6ea56f08cb"
+    },
+    "months-april.mp3": {
+      "file": "months-april.mp3",
+      "text": "April",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "17633362a2e85d85be4bb11482814927a78a634a63ff7926c092798a6ecff12a"
+    },
+    "months-mai.mp3": {
+      "file": "months-mai.mp3",
+      "text": "Mai",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "75ac59c951c2123c44655b129f01ab7cdb0b082c2a6b7186a86c748677a0a247"
+    },
+    "months-juli.mp3": {
+      "file": "months-juli.mp3",
+      "text": "Juli",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "7c75f9ec1372b787ca52302136ac26f5c65f00f7f957f9a5d1feafd2ec61a8ba"
+    },
+    "months-september.mp3": {
+      "file": "months-september.mp3",
+      "text": "September",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "f63e54928631a635eaaa8d5a4a8b8a56428cb954564cc3595c246bff821e0cee"
+    },
+    "colors-rot.mp3": {
+      "file": "colors-rot.mp3",
+      "text": "rot",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "f31047a05523b6726bc024d87826737c00afe693c5c8934d890733085657ebaa"
+    },
+    "colors-blau.mp3": {
+      "file": "colors-blau.mp3",
+      "text": "blau",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "8cd983d6cb4813524798a37e125cac792117319a98cd530bdbead431cf232222"
+    },
+    "colors-gelb.mp3": {
+      "file": "colors-gelb.mp3",
+      "text": "gelb",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "9cffe86cf7ee90f3ecaa7f946db9dd2a07dcfcf553f00c91abbdc1c4d993df8c"
+    },
+    "colors-gruen.mp3": {
+      "file": "colors-gruen.mp3",
+      "text": "grün",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "1551575aa343fb003d459ec0493659004560d4348750a1eaa718113c833ebf85"
+    },
+    "colors-weiss.mp3": {
+      "file": "colors-weiss.mp3",
+      "text": "weiß",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "54e9b30153096b4ee60a30a69e3e13ee477770c12238e9db038da691d20b2bae"
+    },
+    "colors-lila.mp3": {
+      "file": "colors-lila.mp3",
+      "text": "lila",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "0d10743661c4c2db9dd2a28879d6ae2275d52f184495b9209e1fd5ed5768e0fa"
+    },
+    "days-mittwoch.mp3": {
+      "file": "days-mittwoch.mp3",
+      "text": "Mittwoch",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "97267f64f94a8a12942f050b86d165f18bb3e7764dfa39d1c73c0290ebbe448b"
+    },
+    "days-donnerstag.mp3": {
+      "file": "days-donnerstag.mp3",
+      "text": "Donnerstag",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "62c43c6f4ecee96bb734fd8409331b49d70a62c29934cac78c442d586048b6af"
+    },
+    "days-sonntag.mp3": {
+      "file": "days-sonntag.mp3",
+      "text": "Sonntag",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "364f2c2d7986fc59ebdedd574de0511a84e800dc7a24cb806767ff62aa061bb5"
+    },
+    "numbers-n-1.mp3": {
+      "file": "numbers-n-1.mp3",
+      "text": "eins",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "e6f040ed5505213e801f20ff5329b06946f74dbde41433657a33c2a1767ec13b"
+    },
+    "numbers-n-6.mp3": {
+      "file": "numbers-n-6.mp3",
+      "text": "sechs",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "ac400ba7c22087987e2586cd782008f0b89382ad47ca39ab3be7704a8de2103e"
+    },
+    "numbers-n-7.mp3": {
+      "file": "numbers-n-7.mp3",
+      "text": "sieben",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "63914d2ef329c4f1092d56d75794fd70d32b27f86cb2a948a8e942575801cafd"
+    },
+    "numbers-n-8.mp3": {
+      "file": "numbers-n-8.mp3",
+      "text": "acht",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "e655299610468cc76f5e4777b66f9c2edcd1f5bf23c94b4384cd0b1eea0d2bc3"
+    },
+    "numbers-n-9.mp3": {
+      "file": "numbers-n-9.mp3",
+      "text": "neun",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "1b3efcfe65b4c6de96f8b14c12de8dca0b4a68cbde5e3f46c2e68e5a5085dde5"
+    },
+    "numbers-n-10.mp3": {
+      "file": "numbers-n-10.mp3",
+      "text": "zehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "e16114b457bfa3dabb46b3e3d9cf63f6f990be210948b4260b56e5504ee4e5bf"
+    },
+    "numbers-n-11.mp3": {
+      "file": "numbers-n-11.mp3",
+      "text": "elf",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "f9c9e88fcb359b51152e3b11abe89dfa5325eaae35b3bce35414621cc7e4373f"
+    },
+    "numbers-n-12.mp3": {
+      "file": "numbers-n-12.mp3",
+      "text": "zwölf",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "37d73867c023d876edb0865d498443aa73e2211d00ae489e1e5b505ef0565205"
+    },
+    "numbers-n-13.mp3": {
+      "file": "numbers-n-13.mp3",
+      "text": "dreizehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "ce092104707587818d826bcf1b42f841c40e5541410439960af2ab39811199fc"
+    },
+    "numbers-n-15.mp3": {
+      "file": "numbers-n-15.mp3",
+      "text": "fünfzehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "9b575c78cbb18d50bab77560647f96753157233021682597a7808038e97aac47"
+    },
+    "numbers-n-16.mp3": {
+      "file": "numbers-n-16.mp3",
+      "text": "sechzehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "2bdba88fef4311b5c65cdc6610b1b5b6ac852d6061cfcd9d130f5ae0d1ea8da5"
+    },
+    "numbers-n-17.mp3": {
+      "file": "numbers-n-17.mp3",
+      "text": "siebzehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "b50b984a611352c500bce86b5873e6ab71d8bc78675fbc668b7b606c77034e02"
+    },
+    "numbers-n-18.mp3": {
+      "file": "numbers-n-18.mp3",
+      "text": "achtzehn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "1f015684e8fef4f979faa03aa15d7d4f92b7b858f097145f664c20f49539d45e"
+    },
+    "numbers-n-21.mp3": {
+      "file": "numbers-n-21.mp3",
+      "text": "einundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "31423fec74625ff44552aac48dfcae434d70154bd4c5e9634ea06abfb19f485c"
+    },
+    "numbers-n-22.mp3": {
+      "file": "numbers-n-22.mp3",
+      "text": "zweiundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "9f8a5238505dccb20c1f5630790eeb556e9b8c6b4ed04cfd85de8a063c0c7353"
+    },
+    "numbers-n-23.mp3": {
+      "file": "numbers-n-23.mp3",
+      "text": "dreiundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "fd365f174600d8d4e8a4c568be35c28d17ed1177a7c1a3f4610e7ea488cc335c"
+    },
+    "numbers-n-24.mp3": {
+      "file": "numbers-n-24.mp3",
+      "text": "vierundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "8b780fc57a16137b0b9b2eb52a4f01c7eab8da14b8d4ebc8c5dd34527968499c"
+    },
+    "numbers-n-26.mp3": {
+      "file": "numbers-n-26.mp3",
+      "text": "sechsundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "e6e6357b77838267061f411cc6399154a69edf40e2164bab71b62fa25f143b1a"
+    },
+    "numbers-n-27.mp3": {
+      "file": "numbers-n-27.mp3",
+      "text": "siebenundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "2c5d285e90401ad8ed2841dc421457b164f97fdfca696660ba5d21c89eadcbbc"
+    },
+    "numbers-n-29.mp3": {
+      "file": "numbers-n-29.mp3",
+      "text": "neunundzwanzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "7301551163dae037f0cbac5e076c189a856277396e6ccff689531c84d95aa01b"
+    },
+    "numbers-n-30.mp3": {
+      "file": "numbers-n-30.mp3",
+      "text": "dreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-lite-tts",
+      "fingerprint": "15dc215d2370f27234ea492e07bd7d47766207aefa3d7b6f816df6c2cefda40c"
+    },
+    "numbers-n-32.mp3": {
+      "file": "numbers-n-32.mp3",
+      "text": "zweiunddreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "324b95b833411e80b9a14364ab858a67c047f76b58bfb82fc549ef2122256d6f"
+    },
+    "numbers-n-33.mp3": {
+      "file": "numbers-n-33.mp3",
+      "text": "dreiunddreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "9a4c7783090f3c031183f69dd4b96752b485c1583c287864a81193c21c002bb2"
+    },
+    "numbers-n-34.mp3": {
+      "file": "numbers-n-34.mp3",
+      "text": "vierunddreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "2697d929f10f71bb8b70a6b2507dd4d76ce33f04c99a8f0f9e42819dd516c9b8"
+    },
+    "numbers-n-37.mp3": {
+      "file": "numbers-n-37.mp3",
+      "text": "siebenunddreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b3f08d9d24a28aeba54a26296e35d5139ddf647f101074c57f9efe2cdf42a593"
+    },
+    "numbers-n-38.mp3": {
+      "file": "numbers-n-38.mp3",
+      "text": "achtunddreißig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "67c4b20fca6608d16bb44ea74d8c7775511a4bb37f81e3688c3911051094a8c5"
+    },
+    "numbers-n-40.mp3": {
+      "file": "numbers-n-40.mp3",
+      "text": "vierzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "7b18b8fd26c44a63f4f1e19f0bc969143645f5c44a4931210d3fb068254bd28d"
+    },
+    "numbers-n-42.mp3": {
+      "file": "numbers-n-42.mp3",
+      "text": "zweiundvierzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ba77b7f65913e337e7862454a0ceea62e3d1903d8f575dee35c103e924704137"
+    },
+    "numbers-n-46.mp3": {
+      "file": "numbers-n-46.mp3",
+      "text": "sechsundvierzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "0b7a8d48df612d9d119230b0d84e728883461d9a788528927e65468910bfc030"
+    },
+    "numbers-n-47.mp3": {
+      "file": "numbers-n-47.mp3",
+      "text": "siebenundvierzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "f367ddd3b254548d025c6b928f0f7e4a6cddc289501f116cb474c8f6294dc278"
+    },
+    "numbers-n-48.mp3": {
+      "file": "numbers-n-48.mp3",
+      "text": "achtundvierzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b80415e7b0541b0255bc0173e5e692a6210a01a4fb510a720e1a9c549fc5aee3"
+    },
+    "numbers-n-53.mp3": {
+      "file": "numbers-n-53.mp3",
+      "text": "dreiundfünfzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "7517bfdec7dedc7fc4ce65b1138288740351062bbefb173a954465af86136885"
+    },
+    "numbers-n-54.mp3": {
+      "file": "numbers-n-54.mp3",
+      "text": "vierundfünfzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "e1b9bd2955cc7151be72f6f61c7218ee57b845b03f029f2fe12f93413da5622c"
+    },
+    "numbers-n-57.mp3": {
+      "file": "numbers-n-57.mp3",
+      "text": "siebenundfünfzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "74547deaf1f01b7499706602e547c36f3da3c0e1844a6982936af20c98053e93"
+    },
+    "numbers-n-58.mp3": {
+      "file": "numbers-n-58.mp3",
+      "text": "achtundfünfzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "21ac76a15261c986cef89c33a88e939549fdd497cc1fa0bc196e666f9036405e"
+    },
+    "numbers-n-60.mp3": {
+      "file": "numbers-n-60.mp3",
+      "text": "sechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "24c2ef8b9716e7200291c963ee883746b2cf960913e3eb6e3e30870e4dbd7a68"
+    },
+    "numbers-n-61.mp3": {
+      "file": "numbers-n-61.mp3",
+      "text": "einundsechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "7cb02d9a4660445d7e7db5f45146bdb8dd153cd56636615c76999ee0036c0027"
+    },
+    "numbers-n-63.mp3": {
+      "file": "numbers-n-63.mp3",
+      "text": "dreiundsechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "c335cf2112e9a5c328f3524ee96adf112e403ba147b007da8e5f226f0bb135fb"
+    },
+    "numbers-n-64.mp3": {
+      "file": "numbers-n-64.mp3",
+      "text": "vierundsechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "4438f8134837eadba49d73dc0f1bc5af3d9718877842183552173bcb71d1d16e"
+    },
+    "numbers-n-65.mp3": {
+      "file": "numbers-n-65.mp3",
+      "text": "fünfundsechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "cec95b3dfbb798a6c25ed8a5d7eb55ca7c544d88944b83c2a786da1f0e3c8308"
+    },
+    "numbers-n-67.mp3": {
+      "file": "numbers-n-67.mp3",
+      "text": "siebenundsechzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "01317b550c0fdb0919028883f1762c631abe83920000807076f9ebbadd848b68"
+    },
+    "numbers-n-71.mp3": {
+      "file": "numbers-n-71.mp3",
+      "text": "einundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "2b661aa374d18dec31d9ee0e15bbafd86d12e8983ac991a39e89a0cae60f034a"
+    },
+    "numbers-n-73.mp3": {
+      "file": "numbers-n-73.mp3",
+      "text": "dreiundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "97e499832cbd59cfa381bca89bfe712a331334347a0df0a94448d3c8c38346b7"
+    },
+    "numbers-n-76.mp3": {
+      "file": "numbers-n-76.mp3",
+      "text": "sechsundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "7edd19df72c9125f3f63d586f36ff2b179da05686936fe8be324ed93cc7a7d6c"
+    },
+    "numbers-n-77.mp3": {
+      "file": "numbers-n-77.mp3",
+      "text": "siebenundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "0eaeb3c9c94a23414fee4abcdc3bf948d7b467b3d4e639af0c24c33dc5c58156"
+    },
+    "numbers-n-78.mp3": {
+      "file": "numbers-n-78.mp3",
+      "text": "achtundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "3f2c8f66896a95fb7ff96484f5bb947e6cf17797003ebcfc5f93d5baee2110b3"
+    },
+    "numbers-n-79.mp3": {
+      "file": "numbers-n-79.mp3",
+      "text": "neunundsiebzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "49def76d708e5b416b28d8059834dd7051def523c1c7841cb438a86576fd7610"
+    },
+    "numbers-n-81.mp3": {
+      "file": "numbers-n-81.mp3",
+      "text": "einundachtzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b078a9be8b20b7ef278643316fb562483a3d34b6ff219a4df836ac3b740522c4"
+    },
+    "numbers-n-83.mp3": {
+      "file": "numbers-n-83.mp3",
+      "text": "dreiundachtzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "5296065273893cffbd9d9ea50ecb7e97409e619fe2261d455f70a5d982596678"
+    },
+    "numbers-n-84.mp3": {
+      "file": "numbers-n-84.mp3",
+      "text": "vierundachtzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "a3a30f63380723196962891e838d243dd2bbcb67c50ea3076911ff43ca87ece6"
+    },
+    "numbers-n-85.mp3": {
+      "file": "numbers-n-85.mp3",
+      "text": "fünfundachtzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "817de0245df1ba25c5c544d7e3dcc3b5bb3419ee9864ba51fdd405c90af24747"
+    },
+    "numbers-n-88.mp3": {
+      "file": "numbers-n-88.mp3",
+      "text": "achtundachtzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "81f3d02761aa68ee4e2af570fab21395a19e4b4de242ff04a0cfe95731903b0e"
+    },
+    "numbers-n-91.mp3": {
+      "file": "numbers-n-91.mp3",
+      "text": "einundneunzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "7d9b6933a1f138e126065318bff854e597994f49abbabea9197a5da0f9fdf626"
+    },
+    "numbers-n-93.mp3": {
+      "file": "numbers-n-93.mp3",
+      "text": "dreiundneunzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "1b3206e31637a2c53ef05a13e2e0ec78815cfa0e8cb617cd2c4ac8207afc0510"
+    },
+    "numbers-n-95.mp3": {
+      "file": "numbers-n-95.mp3",
+      "text": "fünfundneunzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ef38f18e60144bb39f721162e50cad7fefaf53de3cd26cb09a45997bb3c40554"
+    },
+    "numbers-n-98.mp3": {
+      "file": "numbers-n-98.mp3",
+      "text": "achtundneunzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "cbe34e0d771469a961b56920a751ff762a35d646ae152b364b4ca9e73555ab26"
+    },
+    "numbers-n-99.mp3": {
+      "file": "numbers-n-99.mp3",
+      "text": "neunundneunzig",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b583a1207651ddf9c75809a7e8b0f1793373433b256af2a92bf4fb74b0c1e1a1"
+    },
+    "family-mutter.mp3": {
+      "file": "family-mutter.mp3",
+      "text": "die Mutter",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "52b493857f813365a6299f54466a19a977f34410b2ef9f388cc69bf9255c322e"
+    },
+    "family-vater.mp3": {
+      "file": "family-vater.mp3",
+      "text": "der Vater",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "836151342d47b74283ff963a7f16479047cade41d007d2c48ff353cf8d60a73c"
+    },
+    "family-schwester.mp3": {
+      "file": "family-schwester.mp3",
+      "text": "die Schwester",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "d0abf0e71c044f7350d19014c21eb1a51288a7be230135900753d726c5ed4eed"
+    },
+    "family-oma.mp3": {
+      "file": "family-oma.mp3",
+      "text": "die Oma",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "8c3365aed8050c756247d71baf66559352b5fb82f91acf21045c194d156b5f13"
+    },
+    "family-opa.mp3": {
+      "file": "family-opa.mp3",
+      "text": "der Opa",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "d3c1d09cc1ffce3d0bc3c5df0db2a98e8878fab52be266ce9fa616c8950591d2"
+    },
+    "family-sohn.mp3": {
+      "file": "family-sohn.mp3",
+      "text": "der Sohn",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "1f234106f5d1820dedf98f5352dd39eaa982d32fd87bf4634031e75e6a47c01d"
+    },
+    "questions-wo.mp3": {
+      "file": "questions-wo.mp3",
+      "text": "Wo?",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "f294f0a297ac82bef71926d72d5e20cf1d256bca4501a292a85351968d92aa40"
+    },
+    "questions-wohin.mp3": {
+      "file": "questions-wohin.mp3",
+      "text": "Wohin?",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "59aa6e202e3527f6f8fc337710f8b808b9581b15ffcaf304b3419f4a80701084"
+    },
+    "transport-bus.mp3": {
+      "file": "transport-bus.mp3",
+      "text": "der Bus",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "63278c6a8d1b157a685fb96054cc576592f134543abc4f7c28b544acfc73f229"
+    },
+    "transport-fahrrad.mp3": {
+      "file": "transport-fahrrad.mp3",
+      "text": "das Fahrrad",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "828b0f8cf56b6bbf70b504c5b050f33562b725818d11b002affa7e242f5d5f5e"
+    },
+    "transport-flugzeug.mp3": {
+      "file": "transport-flugzeug.mp3",
+      "text": "das Flugzeug",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "a5dbae70c4163fe254579e0609560f78b221cdd48510e2967e7875dc6cf6199f"
+    },
+    "greetings-hallo.mp3": {
+      "file": "greetings-hallo.mp3",
+      "text": "Hallo!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "0454687e19378473000a3f8e4d8d9bd2a9e62d799bf72a4e9378f63e0822feec"
+    },
+    "greetings-guten-morgen.mp3": {
+      "file": "greetings-guten-morgen.mp3",
+      "text": "Guten Morgen!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "8c4dfc3fc1fcfc438bb61fabf0294e799e782104ca78b7cf054d8511ca3e6852"
+    },
+    "greetings-guten-abend.mp3": {
+      "file": "greetings-guten-abend.mp3",
+      "text": "Guten Abend!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ce2ff1f4e388fa28ae608eb3bcc0c2c18e3b47bf3e637d70c9e0a623e061e84f"
+    },
+    "greetings-tschuess.mp3": {
+      "file": "greetings-tschuess.mp3",
+      "text": "Tschüss!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "86548291faf98f6d235411001a54e67af10f7d82ab041bb866fb88096ed6ecdf"
+    },
+    "greetings-auf-wiedersehen.mp3": {
+      "file": "greetings-auf-wiedersehen.mp3",
+      "text": "Auf Wiedersehen!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ead433a88bdbddb6e95cefa7a8f9c7a47d069539c0727403f0ce642d74829d78"
+    },
+    "greetings-gute-nacht.mp3": {
+      "file": "greetings-gute-nacht.mp3",
+      "text": "Gute Nacht!",
+      "voice": "Kore",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "d72f4c5e0f82d59db721f401ec59292f6c024ffe96a6dff2bb80818803f107be"
+    },
+    "days-montag.mp3": {
+      "file": "days-montag.mp3",
+      "text": "Montag",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "8a4dce921461c040f0f9aed49cf54315098f384871655f82d24071e4d0ba9f19"
+    },
+    "days-dienstag.mp3": {
+      "file": "days-dienstag.mp3",
+      "text": "Dienstag",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "c2426bd56c2097f5d82e0343dea50c50b29fcb5f9132d754f1c15d4f95fb7e87"
+    },
+    "days-freitag.mp3": {
+      "file": "days-freitag.mp3",
+      "text": "Freitag",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "bfdb2283debd824227c025183447d9f1d88fb5d22b8dc222f8964b7c4b08c8cc"
+    },
+    "days-samstag.mp3": {
+      "file": "days-samstag.mp3",
+      "text": "Samstag",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b4dc6fd3883a7fbc419fad9397fb65a64b9e039410a3cd24b8df4eb3abe1031f"
+    },
+    "numbers-n-0.mp3": {
+      "file": "numbers-n-0.mp3",
+      "text": "null",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "2485d96313b421e192afa30d13fecc0e1c8925b993b8c01ec6912c798e05526e"
+    },
+    "numbers-n-2.mp3": {
+      "file": "numbers-n-2.mp3",
+      "text": "zwei",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "c5036972231d85be923306ac3c446150390e7fe718aa21d5592bb0d54b47a1c5"
+    },
+    "numbers-n-3.mp3": {
+      "file": "numbers-n-3.mp3",
+      "text": "drei",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "4ee4338a48e6a3a81506339ff19fc01bca64ce6818b1fb7efc3f1aec65a650dc"
+    },
+    "numbers-n-4.mp3": {
+      "file": "numbers-n-4.mp3",
+      "text": "vier",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "455d03c384d8b6c60b921c7f40c5b0fd0dd4a663191e82e7b59e7c7baf4b4e79"
+    },
+    "numbers-n-5.mp3": {
+      "file": "numbers-n-5.mp3",
+      "text": "fünf",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "a56eeefd59af02ba9489b434187222404681d0b0f57032779340d9b995b34e97"
+    },
+    "numbers-n-14.mp3": {
+      "file": "numbers-n-14.mp3",
+      "text": "vierzehn",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "28f51f9b325478c1b2b535734e452c92c90c759108e491ce9e81bb0962cdefae"
+    },
+    "numbers-n-19.mp3": {
+      "file": "numbers-n-19.mp3",
+      "text": "neunzehn",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "de08b29f75d2619c423d5748f4410e2c3fba6a1ecd19a6bf246ed4b93ad7ff24"
+    },
+    "numbers-n-20.mp3": {
+      "file": "numbers-n-20.mp3",
+      "text": "zwanzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "32700665b3fbab0b07beeb043c85d2aef9d944ae57353ec451a1d0128fca0395"
+    },
+    "numbers-n-25.mp3": {
+      "file": "numbers-n-25.mp3",
+      "text": "fünfundzwanzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b3b68335df83b5cf8c0b80315c84f62cd32030e9c4a0435187061744b0cdc8d1"
+    },
+    "numbers-n-28.mp3": {
+      "file": "numbers-n-28.mp3",
+      "text": "achtundzwanzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "3ed4a2458e05045296a34e8b5d747de5a2a831f48c859d933ceb3b22a6451267"
+    },
+    "numbers-n-31.mp3": {
+      "file": "numbers-n-31.mp3",
+      "text": "einunddreißig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "cdda70d47936108235abcde876e135a12ac3a7adc21a5ca8c5fd2fe7599b6030"
+    },
+    "numbers-n-35.mp3": {
+      "file": "numbers-n-35.mp3",
+      "text": "fünfunddreißig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "3d41b3f7e0dab5c547a5c21479c29400d9a82349f3bd63c4e6385a3e2cc84664"
+    },
+    "numbers-n-36.mp3": {
+      "file": "numbers-n-36.mp3",
+      "text": "sechsunddreißig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "08ac5b33c4e560de556f1fd6965972c3396825ad4cdb2310092f4967074c38ee"
+    },
+    "numbers-n-39.mp3": {
+      "file": "numbers-n-39.mp3",
+      "text": "neununddreißig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "fb44afd4a95d98123594adff5f8de8b74f3de96b658dfb555f58fa21ce87d3e1"
+    },
+    "numbers-n-41.mp3": {
+      "file": "numbers-n-41.mp3",
+      "text": "einundvierzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "cf1e18eb0b42c622c4acb718e4966cc5664c33983c2ef11913913bf3b48485ee"
+    },
+    "numbers-n-43.mp3": {
+      "file": "numbers-n-43.mp3",
+      "text": "dreiundvierzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "0ec4454983c4ce31c7bef383639abda62daa983e7b0ee20b66387c85bfaf9723"
+    },
+    "numbers-n-44.mp3": {
+      "file": "numbers-n-44.mp3",
+      "text": "vierundvierzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "079a669f3028db12da64d0accf97519f8d7992dcf6a33b4b0e9acedbf3c6c586"
+    },
+    "numbers-n-45.mp3": {
+      "file": "numbers-n-45.mp3",
+      "text": "fünfundvierzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "466b28977a9ff5af60a50d86671bfb26a74bdbd040f13d41ef0e9ecb955a15ed"
+    },
+    "numbers-n-49.mp3": {
+      "file": "numbers-n-49.mp3",
+      "text": "neunundvierzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "e6605c5ce29369478f465f810cbc497fd0beb165752e377188d4de91a4452e25"
+    },
+    "numbers-n-50.mp3": {
+      "file": "numbers-n-50.mp3",
+      "text": "fünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "3dba431d8403c2c6eb3df559e61762ec57338942ab7194fc18ad95c8020e93ff"
+    },
+    "numbers-n-51.mp3": {
+      "file": "numbers-n-51.mp3",
+      "text": "einundfünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "2bc7f909b60ba6fca1bfedf3860fe8086574c6c3c3a4e4ee8d6fd41c5ec169d7"
+    },
+    "numbers-n-52.mp3": {
+      "file": "numbers-n-52.mp3",
+      "text": "zweiundfünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "1ce29e0f07afaefd822a990ccc1b6ebdc8f2fbe7b24e2e34dfea028b33e63c69"
+    },
+    "numbers-n-55.mp3": {
+      "file": "numbers-n-55.mp3",
+      "text": "fünfundfünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "1ea25ca903f664bb338e9ee3ab2ddf49762115bc6c0a15f0ff878eeb64ea5f91"
+    },
+    "numbers-n-56.mp3": {
+      "file": "numbers-n-56.mp3",
+      "text": "sechsundfünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ab417bc26ee44fb7b2809b4726b5d65bbfbbae684dc7f3ce7091d0e14a8c70bd"
+    },
+    "numbers-n-59.mp3": {
+      "file": "numbers-n-59.mp3",
+      "text": "neunundfünfzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "d739ce8eb31e8101c9d1e9edbd6c07c5aa2a620600b33afd1c72be4bb9486d27"
+    },
+    "numbers-n-62.mp3": {
+      "file": "numbers-n-62.mp3",
+      "text": "zweiundsechzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "e1a2e39377ec4794bf37c4d605ebadaf3ab07c05d6a2d4c605d2f565d64a1f4c"
+    },
+    "numbers-n-66.mp3": {
+      "file": "numbers-n-66.mp3",
+      "text": "sechsundsechzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "bf856607ef343823268f22c3f2051e968b9a96d4bdc69169f5dfcf73b0a1f191"
+    },
+    "numbers-n-68.mp3": {
+      "file": "numbers-n-68.mp3",
+      "text": "achtundsechzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "8cfb64796b6f77fbbee07ea873a131552288763b4e4aac67701f27f10e0272a8"
+    },
+    "numbers-n-69.mp3": {
+      "file": "numbers-n-69.mp3",
+      "text": "neunundsechzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "c1cde05f2b177f6417d80d59ddfe4bb07093d7ffaf638389fe94016e77ab62c1"
+    },
+    "numbers-n-70.mp3": {
+      "file": "numbers-n-70.mp3",
+      "text": "siebzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "4c1cdc2b1d15da7217255815baefaac27c44c2dd7d7edd6a3600f72df79410bf"
+    },
+    "numbers-n-72.mp3": {
+      "file": "numbers-n-72.mp3",
+      "text": "zweiundsiebzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "9fd515ee81e706a97507dce2ccce4454ccfea311502d21d2aed7a441a4abd284"
+    },
+    "numbers-n-74.mp3": {
+      "file": "numbers-n-74.mp3",
+      "text": "vierundsiebzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "98f7048c948dd1e60cd66ac5fdf899d267c713a263d669a03ce2b4e727fe6d4c"
+    },
+    "numbers-n-75.mp3": {
+      "file": "numbers-n-75.mp3",
+      "text": "fünfundsiebzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "49063284d554d8aaaf05dfe77c7dd69d93489b3776ba47cbf9d80d405a1502c9"
+    },
+    "numbers-n-80.mp3": {
+      "file": "numbers-n-80.mp3",
+      "text": "achtzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "ec4d7a144a8ce6cc0b3daf2744314e46b67dbaf9a8eab16d993610f3a6e4f703"
+    },
+    "numbers-n-82.mp3": {
+      "file": "numbers-n-82.mp3",
+      "text": "zweiundachtzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "c27dc5f3e96d43c6507742073f2b2da87ace833d309d83c16dfe36576791036c"
+    },
+    "numbers-n-86.mp3": {
+      "file": "numbers-n-86.mp3",
+      "text": "sechsundachtzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "2ce246c05c8ce55ea1e95c3e81e3264adfc58d8ecf3b2ff77d3cc2b0c539edb5"
+    },
+    "numbers-n-87.mp3": {
+      "file": "numbers-n-87.mp3",
+      "text": "siebenundachtzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b6b36a32876b4ec3f546f04406a5592726e9314dad6c08075eeb979d7d6e4e0f"
+    },
+    "numbers-n-89.mp3": {
+      "file": "numbers-n-89.mp3",
+      "text": "neunundachtzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "6125096999a0ee22718df5e84421b8ff900bff471d296d01bf433dc449b0db54"
+    },
+    "numbers-n-90.mp3": {
+      "file": "numbers-n-90.mp3",
+      "text": "neunzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "f32c14f565dfa2986c3c290e5fabb011539577fc83ed0740a8b2d793dfd884bd"
+    },
+    "numbers-n-92.mp3": {
+      "file": "numbers-n-92.mp3",
+      "text": "zweiundneunzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "702f983ed73f38dceb7276ce2511adeceac21d9866d12363d38af60121ce559a"
+    },
+    "numbers-n-94.mp3": {
+      "file": "numbers-n-94.mp3",
+      "text": "vierundneunzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "b484edec7e65281cd432da515f4a9326c0a59ef1eeaa8218a3622fcef9a57bd9"
+    },
+    "numbers-n-96.mp3": {
+      "file": "numbers-n-96.mp3",
+      "text": "sechsundneunzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "35849f64b5565b2d90941cc0235b9e5a2ff7587b15edcedb3ac9ba0a82f2a62d"
+    },
+    "numbers-n-97.mp3": {
+      "file": "numbers-n-97.mp3",
+      "text": "siebenundneunzig",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "291655e8324251a37119fdcb3f4c86e1ede63bd293a10880b1429284b52ed19c"
+    },
+    "numbers-n-100.mp3": {
+      "file": "numbers-n-100.mp3",
+      "text": "hundert",
+      "voice": "Aoede",
+      "model": "gemini-3.8-flash-tts",
+      "fingerprint": "3fecd7a7b18ae9e8f96f1036c10b2d29c31ddf08e94ee40dad4e5b094b3b7d63"
+    },
+    "family-bruder.mp3": {
+      "file": "family-bruder.mp3",
+      "text": "der Bruder",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "2ce9febc0db92b4af43f8863ecf1cfc83fca31f53b64752228bd5b53533309b6"
+    },
+    "family-tochter.mp3": {
+      "file": "family-tochter.mp3",
+      "text": "die Tochter",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "e8ef99b1861390648c49ce312b18c6a08b109965d92f77aa456e414089ca151a"
+    },
+    "questions-was.mp3": {
+      "file": "questions-was.mp3",
+      "text": "Was?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "f9a6e3f39f1cbe769b00ecc6707c8e06ec19452391f26b3336f6ff30bb4d11b7"
+    },
+    "questions-woher.mp3": {
+      "file": "questions-woher.mp3",
+      "text": "Woher?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "815e8768a43b9f71c12f3d202df5726f68b25911e5e1ed3d6d4627e03ece7bbe"
+    },
+    "questions-wann.mp3": {
+      "file": "questions-wann.mp3",
+      "text": "Wann?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "4a33dbe884b38cecf20bda97097d980f262a044d56ef1d8c266d00efefcb7fcc"
+    },
+    "questions-wer.mp3": {
+      "file": "questions-wer.mp3",
+      "text": "Wer?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "43067ed876c664801d7d0b1e025a485a3a86c67430196fee629171b7809b268d"
+    },
+    "questions-wie.mp3": {
+      "file": "questions-wie.mp3",
+      "text": "Wie?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "df09ed400449d6619f364681ce4b1d02751eb6dbd214223d3f984d90f69e9856"
+    },
+    "questions-warum.mp3": {
+      "file": "questions-warum.mp3",
+      "text": "Warum?",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "5483275269eb425dc872d0e42629aa998448936f0ed23443f04a42d487bc98fd"
+    },
+    "transport-auto.mp3": {
+      "file": "transport-auto.mp3",
+      "text": "das Auto",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "966b9c97a9c2e0364e9b2899df5bafb9862c0a7a6b7cc7ccd00a5bdb073be137"
+    },
+    "transport-zug.mp3": {
+      "file": "transport-zug.mp3",
+      "text": "der Zug",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "bde4698016cd2a42ef3b5cfcf03e5c18dc8c3c3d71068ae083409b7536dd9748"
+    },
+    "transport-schiff.mp3": {
+      "file": "transport-schiff.mp3",
+      "text": "das Schiff",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "35eca6a81e729cdfdbf05062f1e338cb0defbdd42cd9b877c61358c2ebf7ab32"
+    },
+    "transport-strassenbahn.mp3": {
+      "file": "transport-strassenbahn.mp3",
+      "text": "die Straßenbahn",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "408691ad14997075e28e0e8166b280087cc51c084cc3e9c6c728d5994b8c7d41"
+    },
+    "transport-taxi.mp3": {
+      "file": "transport-taxi.mp3",
+      "text": "das Taxi",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "01f71c8f278faba88abde7f809fc53a585839493609bb1213278f67f1c273779"
+    },
+    "greetings-guten-tag.mp3": {
+      "file": "greetings-guten-tag.mp3",
+      "text": "Guten Tag!",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "59441a33be0d5a7164e4a2570372b448ec9c579a8fc30795bdcca4633a647a26"
+    },
+    "greetings-bis-bald.mp3": {
+      "file": "greetings-bis-bald.mp3",
+      "text": "Bis bald!",
+      "voice": "Aoede",
+      "model": "gemini-3.1-flash-tts-preview",
+      "fingerprint": "47145ebbee11220a27c36f9713d793a1216cf0931ef94abeb9dc180b3ea6e8f7"
+    }
+  },
+  "version": "de-native-metadata-v2",
+  "language": "de-DE",
+  "style": "Muttersprache Deutsch aus Deutschland (de-DE). Klare, korrekte hochdeutsche Aussprache aller deutschen Woerter, Monatsnamen und Zahlen; kein englischer Akzent, keine englischen Aussprachen. Ruhige, natuerliche, freundliche Stimme fuer ein Kind, das Deutsch lernt. Etwas langsamer sprechen, aber nicht uebertrieben betonen. Lange stille Pausen an den Pausenmarkierungen."
+}

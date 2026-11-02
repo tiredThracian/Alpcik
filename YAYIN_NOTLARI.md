@@ -1,5 +1,14 @@
 # Yayın notları
 
+## 2 Kasım 2026 — Yeniden deneme, Almanca sesleri ve geri gezinme
+
+- İngilizce düzensiz fiillerde yanlış cevap doğru cevabı açığa çıkarmıyor. Öğrenci yazmalı ve çoktan seçmeli soruları doğru cevaba kadar yeniden deneyebiliyor; ipuçları açık kalıyor. Doğru cevapta cümle sesi ve Sonraki düğmesi açılıyor.
+- Almancadaki 162 kayıt doğal Almanca telaffuz yönergeleriyle yeniden üretildi. Dosyalar statik MP3 olarak sunuluyor; kullanım sırasında API çağrısı yapılmıyor.
+- Almancada konu açılınca ve kelime değişince ses otomatik başlıyor. Önceki ses durduruluyor.
+- Öğrenme kartlarına ve quiz sorularına Önceki düğmesi eklendi. Bölüm ve öğrenme/quiz sınırları arasında geri dönülebiliyor. Doğru cevaplanmış sorular kilitli ve doğru seçenek işaretli açılıyor.
+- Eski öğrenci ilerlemeleri korunuyor; çözülen Almanca sorular da kaydediliyor. Uygulama ve ses URL sürümleri yenilendi.
+- Kullanıcının yayın talebiyle ana site ve ayrı İngilizce sitesi birlikte güncellendi.
+
 ## 1 Kasım 2026 — İngilizce açılış ekranı
 
 İngilizce sitesinin ana adresi artık doğrudan `topics.html` konu seçimine yönleniyor. Düzensiz fiiller çalışması `irregular-verbs.html` adresine taşındı; hem konu kartı hem de ana sitedeki bağlantısı güncellendi. Öğrenci isimleri ve ilerlemeler aynı kayıt anahtarlarıyla korunuyor. Bu küçük güncelleme kullanıcı talebiyle yayınlandı.

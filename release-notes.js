@@ -1,6 +1,15 @@
 // Published release history. Update after local review when preparing a release.
 (() => {
   const releases = [
+    { date: '2026-11-02', label: '2 Kasım 2026', scope: ['home', 'english'], title: 'İngilizcede yanlış cevaptan sonra yeniden deneme', items: [
+      'Düzensiz fiillerde yanlış cevap artık doğru cevabı göstermiyor. Yazmalı ve çoktan seçmeli sorularda yeniden denenebiliyor.',
+      'İpuçları kullanılabiliyor; doğru cevap verilince başarı mesajı, cümle sesi ve Sonraki düğmesi açılıyor.'
+    ] },
+    { date: '2026-11-02', label: '2 Kasım 2026', scope: ['home'], title: 'Almancada yeni sesler ve önceki soruya dönme', items: [
+      '162 Almanca ses kaydı, Almanca telaffuz özellikle belirtilerek yeniden üretildi.',
+      'Konu açılınca ve Önceki veya Sonraki ile kelime değişince ses otomatik başlıyor.',
+      'Önceki düğmesiyle öğrenme kartlarına ve quiz sorularına geri dönülebiliyor. Doğru cevaplanmış sorular korunuyor ve yeniden çözmek gerekmiyor.'
+    ] },
     { date: '2026-11-01', label: '1 Kasım 2026', scope: ['home', 'english'], title: 'İngilizce sitesi doğrudan konu seçimiyle açılıyor', items: [
       'İngilizce sitesinin ana adresi artık doğrudan İngilizce konularını gösteriyor.',
       'Düzensiz fiiller ve Celebrations Over Time çalışmalarından biri konu kartıyla seçilebiliyor.',
