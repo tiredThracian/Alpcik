@@ -1,6 +1,13 @@
 // Published release history. Update after local review when preparing a release.
 (() => {
   const releases = [
+    { date: '2026-11-05', label: '5 Kasım 2026', scope: ['home', 'english'], title: 'Yeni kelime quizi: Verb ↔ Past Simple', items: [
+      'Her quizde 23 fiilin tamamı karışık sırada soruluyor. Bazen ilk hâli, bazen geçmiş zaman hâli yazılıyor veya seçeneklerden seçiliyor.',
+      'Quiz bitince yeni bir karışımla devam ediliyor. Tamamlanan quizler kaydediliyor; bir kelime önce soruldu diye sonraki quizden çıkarılmıyor.',
+      'Soru açılınca kelime, bir şık seçilince o şık, doğru cevaptan sonra da cevap seslendiriliyor.',
+      'Önceki soruya dönme, kelimeyi yeniden veya yavaş dinleme ve cevabı tekrar dinleme düğmeleri eklendi.',
+      'Yanlış cevapta doğru cevap gösterilmiyor; yeniden denenebiliyor. İsim seçimi ve kaldığı quizden devam etme destekleniyor.'
+    ] },
     { date: '2026-11-02', label: '2 Kasım 2026', scope: ['home', 'english'], title: 'İngilizcede yanlış cevaptan sonra yeniden deneme', items: [
       'Düzensiz fiillerde yanlış cevap artık doğru cevabı göstermiyor. Yazmalı ve çoktan seçmeli sorularda yeniden denenebiliyor.',
       'İpuçları kullanılabiliyor; doğru cevap verilince başarı mesajı, cümle sesi ve Sonraki düğmesi açılıyor.'

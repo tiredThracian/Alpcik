@@ -1,5 +1,14 @@
 # Yayın notları
 
+## 5 Kasım 2026 — Verb ↔ Past Simple kelime quizi
+
+- İngilizce konu ekranlarına yeni kelime quizi eklendi. Mevcut 23 fiilin tamamı her quizde karışık sırada, ilk hâli veya geçmiş zaman hâli sorularak çalışılıyor. Yazmalı ve çoktan seçmeli sorular karışık geliyor.
+- Quiz sayısı sınırsız; tamamlanan her quizden sonra bütün kelimeleri içeren yeni bir karışım oluşuyor. Soru bazında geçmişe göre eleme yapılmıyor. Tamamlanan quizler ve devam eden quizin konumu öğrenci adına göre saklanıyor.
+- Soru açılınca verilen kelime, şık seçilince o şık ve doğru cevapta cevap okunuyor. Hazır MP3 kayıtları kullanılıyor. Kelimeyi yeniden/yavaş dinleme ve cevabı tekrar dinleme mümkün.
+- Önceki soruya dönülebiliyor. Aynı quizde doğru cevaplanan sorular cevaplarıyla açılıyor; yeni quizin kelimeleri bundan etkilenmiyor. Yanlış cevapta doğru cevap açığa çıkarılmadan yeniden deneme imkânı var.
+- Yeni modda kullanılan isimler ortak isim seçicide de gösteriliyor. Diğer egzersizlerin ilerlemeleri korunuyor.
+- Güncellenmiş kelime listesi henüz paylaşılmadığı için bu yayın mevcut 23 fiili içeriyor. Yeni kelimeler teyit edilmeden eklenmedi.
+
 ## 2 Kasım 2026 — Yeniden deneme, Almanca sesleri ve geri gezinme
 
 - İngilizce düzensiz fiillerde yanlış cevap doğru cevabı açığa çıkarmıyor. Öğrenci yazmalı ve çoktan seçmeli soruları doğru cevaba kadar yeniden deneyebiliyor; ipuçları açık kalıyor. Doğru cevapta cümle sesi ve Sonraki düğmesi açılıyor.

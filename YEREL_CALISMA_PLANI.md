@@ -1,5 +1,17 @@
 # Ders yapısı ve yerel değerlendirme
 
+## 4–5 Kasım 2026 — Kelime quizi, yayın talebi alındı; güncel liste bekleniyor
+
+- Kullanıcı yeni kelime listesi bildirdi ancak liste mesajda bulunmuyor. Fotoğraf veya metin istendi; yeni kelimeler teyit edilmeden eklenmedi. Mevcut cümle egzersizlerinin içeriği ve öğrenci ilerlemeleri bu aşamada değişmedi.
+- İngilizce konu ekranlarına Verb ↔ Past Simple adlı ayrı quiz eklendi. Mevcut 23 fiilin tamamı her quizde birer kez, rastgele sırada sorulur. İlk hâli ve geçmiş zaman hâli, yazmalı ve çoktan seçmeli olarak karıştırılır.
+- Bu modun öğrenci kayıtları ayrıdır: `kelime-kulubu-verb-quiz-profiles-v1`. Soru bazında kalıcı çözülmüş listesi tutulmaz. Tamamlanmış quizler ve yalnızca devam eden quizin sırası/konumu saklanır. Aynı kelime sonraki quizde tekrar sorulur.
+- Yanlış cevapta doğru cevap açığa çıkarılmaz, yeniden denenebilir. Doğru cevapta Sonraki açılır. Son sorudan sonra quiz tamamlanır; sıradaki quiz yeni bir karışımla başlar.
+- Soru açılınca verilen kelime, doğru cevapta cevap otomatik seslendirilir. Hazır İngilizce kelime MP3 dosyaları kullanılır; Kelimeyi dinle, Yavaş dinle ve doğru cevaptan sonra Cevabı dinle düğmeleri vardır. Birden fazla doğru biçim (was/were) sırayla okunur; gezinirken önceki okuma kesilir.
+- Önceki düğmesiyle aynı quizin önceki sorularına dönülebilir. Bu quizde doğru cevaplanan konuma kadar olan sorular cevaplarıyla kilitli açılır; tekrar cevaplamak gerekmez. Bu geçici ilerleme yeni quizin kelimelerini filtrelemez ve quiz tamamlanınca kaldırılır.
+- 5 Kasım: Çoktan seçmeli kelime quizinde soru açılınca sorulan kelime okunur; bir şık seçilince o şıktaki kelime seslendirilir. Was/were gibi birden fazla biçim içeren şıklar sırayla okunur. Yeni şık seçilince önceki ses durur; doğruluk Kontrol et ile değerlendirilir.
+- İsim seçici, bu yeni modda kullanılan isimleri de diğer derslere taşır. Eski kayıtlar silinmez.
+- Yerel adres: `http://127.0.0.1:8766/english-only/verb-quiz.html`. Kullanıcı 5 Kasım'da bu hâliyle yayınlanmasını istedi. Güncel liste geldiğinde cümle egzersizleri de genişletilecek ve bütün kelimelerden karışık seçim korunacak.
+
 ## 2 Kasım 2026 — Almanca düzeltmesi, yayın talebi alındı
 
 - Konu açılınca ve Sonraki ile yeni kelimeye geçilince ses otomatik başlar. Bu, öğrenme kartlarında ve quizde uygulanır; bölüm sonu ekranında ses başlatılmaz.

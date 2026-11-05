@@ -1,6 +1,6 @@
 // Read existing lesson profiles without changing their progress or storage keys.
 (() => {
-  const keys = ['gecmis-zaman-kulubu-child-profiles-v1', 'kelime-kulubu-german-progress-v1', 'kelime-kulubu-celebrations-profiles-v1'];
+  const keys = ['gecmis-zaman-kulubu-child-profiles-v1', 'kelime-kulubu-german-progress-v1', 'kelime-kulubu-celebrations-profiles-v1', 'kelime-kulubu-verb-quiz-profiles-v1'];
   function names() {
     const found = new Map();
     for (const key of keys) {
